@@ -32,6 +32,21 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 	public static String info[] = new String[] { "￥：28", "￥：28", "￥：28",
 			"￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", };
 
+	/**
+	 * Create a new instance of ChemicalFragment, providing "num" as an
+	 * argument.
+	 */
+	static ChemicalFragment newInstance(int num) {
+		ChemicalFragment f = new ChemicalFragment();
+
+		// Supply num input as an argument.
+		Bundle args = new Bundle();
+		args.putInt("num", num);
+		f.setArguments(args);
+		return f;
+	}
+
+	// 查看的回调接口
 	public interface btnListener {
 		public void lookMore(int index);
 	}
@@ -41,7 +56,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		System.out.println("LeftFragment--->onAttach");
+		System.out.println("ChemicalFragment--->onAttach");
 
 		myListener = (btnListener) activity;
 	}
@@ -140,6 +155,22 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Fragment#onDetach()
+	 */
+	@Override
+	public void onDetach() {
+		// TODO Auto-generated method stub
+		// 退出activity
+		getActivity().finish();
+		getActivity().overridePendingTransition(R.anim.animation_enterfromleft,
+				R.anim.animation_fadefromright);
+		super.onDetach();
 	}
 
 	@Override
@@ -147,7 +178,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.riv_sedi_exit:
-			// 退出当前fragment
+			// 退出activity
 			getActivity().finish();
 			getActivity().overridePendingTransition(
 					R.anim.animation_enterfromleft,

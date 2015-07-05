@@ -23,8 +23,8 @@ public final class R {
     public static final class color {
         public static final int back=0x7f050013;
         public static final int backgroundcolor=0x7f050005;
-        public static final int bg_Gray=0x7f05001a;
-        public static final int bg_Gray_light=0x7f05001c;
+        public static final int bg_Gray=0x7f05001b;
+        public static final int bg_Gray_light=0x7f05001d;
         public static final int black=0x7f050001;
         public static final int blue=0x7f050003;
         public static final int btn_normal_color=0x7f050016;
@@ -34,10 +34,11 @@ public final class R {
         public static final int green=0x7f050004;
         public static final int head_text_color=0x7f050014;
         public static final int header_color=0x7f050015;
-        public static final int item_line_color=0x7f050019;
-        public static final int item_text_color=0x7f050018;
+        public static final int item_line_color=0x7f05001a;
+        public static final int item_text_color=0x7f050019;
         public static final int line_color=0x7f050010;
         public static final int line_text_color=0x7f05000e;
+        public static final int lv_btn_pressed_color=0x7f050018;
         public static final int orange=0x7f05000c;
         public static final int popup_main_background=0x7f05000b;
         public static final int setting_item_bg=0x7f050012;
@@ -48,7 +49,7 @@ public final class R {
         public static final int transparent=0x7f05000d;
         public static final int transparent_background=0x7f05000a;
         public static final int transparentgray=0x7f050009;
-        public static final int tv_Black=0x7f05001b;
+        public static final int tv_Black=0x7f05001c;
         public static final int white=0x7f050000;
     }
     public static final class dimen {
@@ -128,10 +129,10 @@ public final class R {
         public static final int ItemTitle=0x7f0a0019;
         public static final int RivProListTitle=0x7f0a0010;
         public static final int RivSediContainer=0x7f0a0028;
-        public static final int action_settings=0x7f0a002d;
+        public static final int action_settings=0x7f0a002e;
         public static final int chief=0x7f0a0023;
-        public static final int child_content=0x7f0a002b;
-        public static final int child_id=0x7f0a002a;
+        public static final int child_content=0x7f0a002c;
+        public static final int child_id=0x7f0a002b;
         public static final int child_text=0x7f0a0012;
         public static final int dateEnd=0x7f0a0025;
         public static final int dateStart=0x7f0a0024;
@@ -163,13 +164,14 @@ public final class R {
         public static final int login_edit_layout=0x7f0a001e;
         public static final int mapView=0x7f0a001a;
         public static final int recoder=0x7f0a0022;
-        public static final int riv_sedi_add=0x7f0a0027;
+        public static final int riv_sedi_add=0x7f0a002a;
         public static final int riv_sedi_exit=0x7f0a0026;
+        public static final int riv_sedi_look=0x7f0a0027;
         public static final int text_groupbuy=0x7f0a0006;
         public static final int text_merchant=0x7f0a0009;
         public static final int text_mine=0x7f0a000c;
         public static final int text_more=0x7f0a000f;
-        public static final int vlist_btn=0x7f0a002c;
+        public static final int vlist_btn=0x7f0a002d;
     }
     public static final class layout {
         public static final int activity_layout=0x7f030000;

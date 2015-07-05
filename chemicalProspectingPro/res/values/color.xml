@@ -25,6 +25,7 @@
     <color name="header_color">#ffffff</color>
     <color name="btn_normal_color">#d7dcde</color>
     <color name="btn_pressed_color">#97FFFF</color>
+    <color name="lv_btn_pressed_color">#B4EEB4</color>
     <color name="item_text_color">#2b2b2b</color>
     <color name="item_line_color">#c8c7cc</color>
     <color name="bg_Gray">#CCCCCC</color>
