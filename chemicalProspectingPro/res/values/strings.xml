@@ -26,7 +26,7 @@
     <string name="name">工程列表</string>
     <string name="commit">完成</string>
     <string name="project">项目</string>
-    <string name="riv_sedi_rec">水系沉积物采样记录表</string>
+    <string name="riv_sedi_rec">地球化学采样记录表</string>
     <string name="btn_exit">退出</string>
     <string name="btn_add">添加</string>
     <string name="depart">单位：</string>

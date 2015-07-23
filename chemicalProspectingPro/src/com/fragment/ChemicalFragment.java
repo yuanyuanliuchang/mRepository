@@ -98,7 +98,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 				R.layout.vlist, mFrom, mTo);
 		listView.setAdapter(mAdapter);
 
-		titleTv.setText("水系沉积物登记表");
+		titleTv.setText("方法登记表");
 		return view;
 	}
 
