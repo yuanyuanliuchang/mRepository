@@ -107,12 +107,12 @@ public class RivSediDtlLvFragment extends Fragment implements OnClickListener {
 		}
 
 		// 设置按钮的选中和未选中资源
-		for (int i = 0; i < bt_menu.length; i++) {
-			bt_menu[i].setImageResource(select_off[i]);
-			if (v.getId() == bt_menu_id[i]) {
-				bt_menu[i].setImageResource(select_on[i]);
-			}
-		}
+		// for (int i = 0; i < bt_menu.length; i++) {
+		// bt_menu[i].setImageResource(select_off[i]);
+		// if (v.getId() == bt_menu_id[i]) {
+		// bt_menu[i].setImageResource(select_on[i]);
+		// }
+		// }
 	}
 
 }

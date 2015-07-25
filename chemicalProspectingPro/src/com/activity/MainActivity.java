@@ -1,24 +1,7 @@
 package com.activity;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.KJDB;
 import org.kymjs.kjframe.ui.BindView;
-import org.kymjs.kjframe.ui.ViewInject;
-
-import android.app.Application;
-
-import com.app.AppContext;
-import com.chemicalprospecting.DKHtsxItemData;
-import com.chemicalprospecting.DKHtsxSample;
-import com.chemicalprospecting.DKHttrSample;
-import com.chemicalprospecting.DebugConfig;
-import com.chemicalprospectingpro.R;
-import com.drilling.DKZtBasicInfo;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -27,13 +10,16 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.TabHost.TabSpec;
+
+import com.app.AppContext;
+import com.chemicalprospecting.DebugConfig;
+import com.chemicalprospectingpro.R;
 
 public class MainActivity extends TabActivity implements OnClickListener {
 

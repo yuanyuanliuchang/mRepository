@@ -9,6 +9,7 @@ import com.fragment.detailFragment.detailBtnListener;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class RiverSedimentsActivity extends Activity implements btnListener,
@@ -77,6 +78,10 @@ public class RiverSedimentsActivity extends Activity implements btnListener,
 	@Override
 	public void lookListener() {
 		// TODO Auto-generated method stub
+		// 记录表查看按钮
+		Intent intent = new Intent(RiverSedimentsActivity.this,
+				RivSedDtlLvActivity.class);
+		startActivity(intent);
 
 	}
 
