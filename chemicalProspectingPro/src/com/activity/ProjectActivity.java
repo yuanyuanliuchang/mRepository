@@ -1,23 +1,21 @@
 package com.activity;
 
-import com.chemicalprospectingpro.R;
-
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
+
+import com.chemicalprospectingpro.R;
 
 /**
  * 主界�?
@@ -84,7 +82,6 @@ public class ProjectActivity extends Activity {
 							.notifyDataSetChanged();
 					return false;
 				}
-
 			}
 		});
 
@@ -199,7 +196,6 @@ public class ProjectActivity extends Activity {
 			// 为视图对象指定布�?
 			convertView = (LinearLayout) LinearLayout.inflate(getBaseContext(),
 					R.layout.group_layout, null);
-
 			RelativeLayout myLayout = (RelativeLayout) convertView
 					.findViewById(R.id.group_layout);
 			// 组标示控件
@@ -214,7 +210,6 @@ public class ProjectActivity extends Activity {
 			// 新建�?��TextView对象，用来显示一级标签上的大体描述的信息
 			ImageView group_state = (ImageView) convertView
 					.findViewById(R.id.group_state);
-
 			/**
 			 * 设置相应控件的内�?
 			 */
@@ -250,7 +245,6 @@ public class ProjectActivity extends Activity {
 
 			convertView = (RelativeLayout) RelativeLayout.inflate(
 					getBaseContext(), R.layout.child_layout, null);
-
 			/**
 			 * 声明视图上要显示的控�?
 			 */

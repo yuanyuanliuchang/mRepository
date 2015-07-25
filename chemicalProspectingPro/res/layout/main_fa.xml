@@ -40,10 +40,11 @@
                 android:src="@drawable/bt_menu_0_select" />
 
             <TextView
+                android:id="@+id/river_sediment_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="详细"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -60,10 +61,11 @@
                 android:src="@drawable/bt_menu_1_select" />
 
             <TextView
+                android:id="@+id/river_sediment_pictrue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="照片"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -80,10 +82,11 @@
                 android:src="@drawable/bt_menu_2_select" />
 
             <TextView
+                android:id="@+id/river_sediment_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="异常"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,10 +103,11 @@
                 android:src="@drawable/bt_menu_3_select" />
 
             <TextView
+                android:id="@+id/river_sediment_quit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="退出"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,10 +124,11 @@
                 android:src="@drawable/bt_menu_4_select" />
 
             <TextView
+                android:id="@+id/river_sediment_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="列表"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
