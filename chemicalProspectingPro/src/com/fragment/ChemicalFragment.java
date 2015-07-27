@@ -27,10 +27,10 @@ import android.widget.TextView;
 public class ChemicalFragment extends Fragment implements OnClickListener {
 
 	private ListView listView;
-	public static String title[] = new String[] { "菜名0", "菜名1", "菜名2", "菜名3",
-			"菜名4", "菜名5", "菜名6", "菜名7", "菜名8", "菜名9" };
-	public static String info[] = new String[] { "￥：28", "￥：28", "￥：28",
-			"￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", };
+	public static String title[] = new String[] { "菜名0", "菜名1", "菜名2", "菜名3", "菜名4", "菜名5", "菜名6", "菜名7", "菜名8",
+			"菜名9" };
+	public static String info[] = new String[] { "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28", "￥：28",
+			"￥：28", };
 
 	/**
 	 * Create a new instance of ChemicalFragment, providing "num" as an
@@ -68,8 +68,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 	 * android.view.ViewGroup, android.os.Bundle)
 	 */
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.user_opinion, container, false);
 		TextView titleTv = (TextView) view.findViewById(R.id.list_title);
@@ -94,8 +93,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 			mList.add(mMap);
 		}
 		// 创建适配器
-		mySimpleAdapter mAdapter = new mySimpleAdapter(getActivity(), mList,
-				R.layout.vlist, mFrom, mTo);
+		mySimpleAdapter mAdapter = new mySimpleAdapter(getActivity(), mList, R.layout.vlist, mFrom, mTo);
 		listView.setAdapter(mAdapter);
 
 		titleTv.setText("方法登记表");
@@ -113,12 +111,10 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 		super.onResume();
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				@SuppressWarnings("unchecked")
 				// 获取被点击的item所对应的数据
-				HashMap<String, Object> map = (HashMap<String, Object>) parent
-						.getItemAtPosition(position);
+				HashMap<String, Object> map = (HashMap<String, Object>) parent.getItemAtPosition(position);
 				// 下面是你的其他事务逻辑
 			}
 		});
@@ -168,8 +164,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		// 退出activity
 		getActivity().finish();
-		getActivity().overridePendingTransition(R.anim.animation_enterfromleft,
-				R.anim.animation_fadefromright);
+		getActivity().overridePendingTransition(R.anim.animation_enterfromleft, R.anim.animation_fadefromright);
 		super.onDetach();
 	}
 
@@ -180,9 +175,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 		case R.id.riv_sedi_exit:
 			// 退出activity
 			getActivity().finish();
-			getActivity().overridePendingTransition(
-					R.anim.animation_enterfromleft,
-					R.anim.animation_fadefromright);
+			getActivity().overridePendingTransition(R.anim.animation_enterfromleft, R.anim.animation_fadefromright);
 			break;
 		case R.id.riv_sedi_add:
 			// 添加新的项目
@@ -196,9 +189,8 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 
 		private LayoutInflater mInflater;
 
-		public mySimpleAdapter(Context context,
-				List<? extends Map<String, ?>> data, int resource,
-				String[] from, int[] to) {
+		public mySimpleAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from,
+				int[] to) {
 			super(context, data, resource, from, to);
 			this.mInflater = LayoutInflater.from(context);
 			// TODO Auto-generated constructor stub
@@ -211,8 +203,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 		 * android.view.ViewGroup)
 		 */
 		@Override
-		public View getView(final int position, View convertView,
-				ViewGroup parent) {
+		public View getView(final int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
 			ViewHolder holder = null;
 			if (convertView == null) {
@@ -223,8 +214,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 
 				convertView = mInflater.inflate(R.layout.vlist, null);
 
-				holder.viewBtn = (Button) convertView
-						.findViewById(R.id.vlist_btn);
+				holder.viewBtn = (Button) convertView.findViewById(R.id.vlist_btn);
 				convertView.setTag(holder);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
@@ -259,8 +249,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 
 		ImageView img = new ImageView(getActivity());
 		img.setImageResource(R.drawable.ic_menu_compass);
-		new AlertDialog.Builder(getActivity()).setView(img)
-				.setTitle("详情" + position)
+		new AlertDialog.Builder(getActivity()).setView(img).setTitle("详情" + position)
 				.setMessage("菜名：" + title[position] + "价格:" + info[position])
 				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 					@Override
