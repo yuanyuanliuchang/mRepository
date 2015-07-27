@@ -18,6 +18,8 @@ public class detailFragment extends Fragment implements OnClickListener {
 		public void exitListener();
 
 		public void lookListener();
+
+		void lookMore(int index);
 	}
 
 	private detailBtnListener btnListener;
@@ -42,8 +44,7 @@ public class detailFragment extends Fragment implements OnClickListener {
 	 * android.view.ViewGroup, android.os.Bundle)
 	 */
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.record_list, container, false);
 		Button exitBtn = (Button) view.findViewById(R.id.riv_sedi_exit);
@@ -52,6 +53,7 @@ public class detailFragment extends Fragment implements OnClickListener {
 		lookBtn.setOnClickListener(this);
 		return view;
 	}
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -59,6 +61,7 @@ public class detailFragment extends Fragment implements OnClickListener {
 
 		btnListener = (detailBtnListener) activity;
 	}
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

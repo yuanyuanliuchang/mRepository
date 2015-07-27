@@ -1,5 +1,14 @@
 package com.activity;
 
+import com.chemicalprospectingpro.R;
+import com.fragment.Cart_F;
+import com.fragment.Detail_F;
+import com.fragment.Discover_F;
+import com.fragment.Tao_F;
+import com.fragment.User_F;
+import com.myInterface.IBtnCallListener;
+import com.zdp.aseo.content.AseoZdpAseo;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,17 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.chemicalprospectingpro.R;
-import com.fragment.Cart_F;
-import com.fragment.Discover_F;
-import com.fragment.Detail_F;
-import com.fragment.Tao_F;
-import com.fragment.User_F;
-import com.myInterface.IBtnCallListener;
-import com.zdp.aseo.content.AseoZdpAseo;
-
-public class RivSedDtlLvActivity extends FragmentActivity implements
-		OnClickListener, IBtnCallListener {
+public class RivSedDtlLvActivity extends FragmentActivity implements OnClickListener, IBtnCallListener {
 
 	/** 详细界面 */
 	private Detail_F detail_F;
@@ -36,20 +35,16 @@ public class RivSedDtlLvActivity extends FragmentActivity implements
 	// 界面底面的文字
 	private TextView[] tv_menu = new TextView[5];
 	// 界面底部的菜单按钮id
-	private int[] bt_menu_id = { R.id.iv_menu_0, R.id.iv_menu_1,
-			R.id.iv_menu_2, R.id.iv_menu_3, R.id.iv_menu_4 };
+	private int[] bt_menu_id = { R.id.iv_menu_0, R.id.iv_menu_1, R.id.iv_menu_2, R.id.iv_menu_3, R.id.iv_menu_4 };
 
-	private int[] bt_text_id = { R.id.river_sediment_detail,
-			R.id.river_sediment_pictrue, R.id.river_sediment_error,
+	private int[] bt_text_id = { R.id.river_sediment_detail, R.id.river_sediment_pictrue, R.id.river_sediment_error,
 			R.id.river_sediment_quit, R.id.river_sediment_list };
 
 	// 界面底部的选中菜单按钮资源
-	private int[] select_on = { R.drawable.guide_home_on,
-			R.drawable.guide_tfaccount_on, R.drawable.guide_discover_on,
+	private int[] select_on = { R.drawable.guide_home_on, R.drawable.guide_tfaccount_on, R.drawable.guide_discover_on,
 			R.drawable.guide_cart_on, R.drawable.guide_account_on };
 	// 界面底部的未选中菜单按钮资源
-	private int[] select_off = { R.drawable.bt_menu_0_select,
-			R.drawable.bt_menu_1_select, R.drawable.bt_menu_2_select,
+	private int[] select_off = { R.drawable.bt_menu_0_select, R.drawable.bt_menu_1_select, R.drawable.bt_menu_2_select,
 			R.drawable.bt_menu_3_select, R.drawable.bt_menu_4_select };
 
 	/*
@@ -72,6 +67,15 @@ public class RivSedDtlLvActivity extends FragmentActivity implements
 			tv_menu[i] = (TextView) findViewById(bt_text_id[i]);
 			bt_menu[i].setOnClickListener(this);
 		}
+
+		// 初始化默认显示的界面
+		if (detail_F == null) {
+			detail_F = new Detail_F();
+			addFragment(detail_F);
+			showFragment(detail_F);
+		} else {
+			showFragment(detail_F);
+		}
 		// 设置默认首页为点击时的图片
 		bt_menu[0].setImageResource(select_on[0]);
 		tv_menu[0].setTextColor(getResources().getColor(R.color.green));
@@ -90,27 +94,23 @@ public class RivSedDtlLvActivity extends FragmentActivity implements
 
 	/** 添加Fragment **/
 	public void addFragment(Fragment fragment) {
-		FragmentTransaction ft = this.getSupportFragmentManager()
-				.beginTransaction();
+		FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
 		ft.add(R.id.show_layout, fragment);
 		ft.commit();
 	}
 
 	/** 删除Fragment **/
 	public void removeFragment(Fragment fragment) {
-		FragmentTransaction ft = this.getSupportFragmentManager()
-				.beginTransaction();
+		FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
 		ft.remove(fragment);
 		ft.commit();
 	}
 
 	/** 显示Fragment **/
 	public void showFragment(Fragment fragment) {
-		FragmentTransaction ft = this.getSupportFragmentManager()
-				.beginTransaction();
+		FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
 		// 设置Fragment的切换动画
-		ft.setCustomAnimations(R.anim.animation_enterfromright,
-				R.anim.animation_fadefromleft);
+		ft.setCustomAnimations(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
 
 		// 判断页面是否已经创建，如果已经创建，那么就隐藏掉
 		if (detail_F != null) {
