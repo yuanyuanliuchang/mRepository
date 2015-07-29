@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/serial_number_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="顺序号:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/serial_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/serial_number_id"
+                android:text="1"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Sample_number_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="样号:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Sample_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Sample_number_id"
+                android:text="sx_as_001"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/color_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="颜色:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/color_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/color_id"
+                android:text="浑浊偏黄"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Repeat_sample_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="重复标样:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Repeat_sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Repeat_sample_id"
+                android:text="否"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Horizontal_coordinates_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="横坐标:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Horizontal_coordinates_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Horizontal_coordinates_id"
+                android:text="24335"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Longitudinal_coordinate_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="纵坐标:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Longitudinal_coordinate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Longitudinal_coordinate_id"
+                android:text="14565"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Water_properties_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="水系性质:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Water_properties_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Water_properties_id"
+                android:text="地表水"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Sample_weight_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="样品重量:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Sample_weight_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Sample_weight_id"
+                android:text="1"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Micro_topography_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="微地形照:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Micro_topography_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Micro_topography_id"
+                android:text="微地形"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Size_or_number_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="3dp"
+                android:text="粒度或数目:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Size_or_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Size_or_number_id"
+                android:text="111"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/Remarks_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="3dp"
+                android:text="备注:"
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Remarks_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/Remarks_id"
+                android:text=""
+                android:textColor="@color/darkslategray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="3dp"
+                android:textColor="@color/azure"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Remarks_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/id"
+                android:text=""
+                android:textColor="@color/aquamarine"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

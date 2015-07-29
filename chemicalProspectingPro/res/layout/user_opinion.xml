@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@drawable/tb_icon_actionbar_back" />
+            android:src="@drawable/my_back" />
 
         <TextView
             android:id="@+id/list_title"
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@drawable/tb_icon_actionbar_refresh_48" />
+            android:src="@drawable/my_add" />
     </LinearLayout>
 
     <LinearLayout
