@@ -73,7 +73,7 @@ public class RiverSedimentsActivity extends Activity implements btnListener, det
 		// 记录表查看按钮
 		Intent intent = new Intent(RiverSedimentsActivity.this, RivSedDtlLvActivity.class);
 		startActivity(intent);
-
+		overridePendingTransition(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
 	}
 
 }

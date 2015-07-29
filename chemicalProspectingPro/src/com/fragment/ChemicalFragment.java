@@ -18,8 +18,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChemicalFragment extends Fragment implements OnClickListener {
 
@@ -69,10 +71,10 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 		View view = inflater.inflate(R.layout.user_opinion, container, false);
 		TextView titleTv = (TextView) view.findViewById(R.id.list_title);
 		listView = (ListView) view.findViewById(R.id.listView);
-		// Button exitBtn = (Button) view.findViewById(R.id.riv_sedi_exit);
-		//Button addBtn = (Button) view.findViewById(R.id.riv_sedi_add);
-		// exitBtn.setOnClickListener(this);
-		//addBtn.setOnClickListener(this);
+		ImageView exitImage = (ImageView) view.findViewById(R.id.iv_back);
+		ImageView addImage = (ImageView) view.findViewById(R.id.iv_refresh);
+		exitImage.setOnClickListener(this);
+		addImage.setOnClickListener(this);
 		// 下面是数据映射关系,mFrom和mTo按顺序一一对应
 		mData = getData();
 		MyAdapter adapter = new MyAdapter(getActivity());
@@ -150,17 +152,17 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		//case R.id.riv_sedi_exit:
+		case R.id.iv_back:
 			// 退出activity
-		// getActivity().finish();
-		// getActivity().overridePendingTransition(R.anim.animation_enterfromleft,
-		// R.anim.animation_fadefromright);
-		// break;
-		// case R.id.riv_sedi_add:
-		// // 添加新的项目
-		// break;
-		// default:
-		// break;
+			getActivity().finish();
+			getActivity().overridePendingTransition(R.anim.animation_enterfromleft, R.anim.animation_fadefromright);
+			break;
+		case R.id.iv_refresh:
+			// 添加新的项目
+			Toast.makeText(getActivity(), " nihao ", 3000).show();
+			break;
+		default:
+			break;
 		}
 	}
 

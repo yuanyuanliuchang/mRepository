@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class detailFragment extends Fragment implements OnClickListener {
 
@@ -47,8 +48,8 @@ public class detailFragment extends Fragment implements OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.record_list, container, false);
-		Button exitBtn = (Button) view.findViewById(R.id.riv_sedi_exit);
-		Button lookBtn = (Button) view.findViewById(R.id.riv_sedi_look);
+		ImageView exitBtn = (ImageView) view.findViewById(R.id.lv_iv_back);
+		ImageView lookBtn = (ImageView) view.findViewById(R.id.lv_iv_look);
 		exitBtn.setOnClickListener(this);
 		lookBtn.setOnClickListener(this);
 		return view;
@@ -67,11 +68,11 @@ public class detailFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		// 退出当前fragment
-		case R.id.riv_sedi_exit:
+		case R.id.lv_iv_back:
 			btnListener.exitListener();
 			break;
 		// 查看详细
-		case R.id.riv_sedi_look:
+		case R.id.lv_iv_look:
 			btnListener.lookListener();
 			break;
 
