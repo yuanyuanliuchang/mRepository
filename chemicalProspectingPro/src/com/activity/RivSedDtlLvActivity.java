@@ -23,9 +23,9 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 	/** 详细界面 */
 	private Detail_F detail_F;
 	/** 照片界面 */
-	private Tao_F tao_F;
+	private Tao_F picture_F;
 	/** 异常界面 */
-	private Discover_F discover_F;
+	private Discover_F error_F;
 	/** 退出界面 */
 	private Cart_F cart_F;
 	/** 我的淘宝界面 */
@@ -116,11 +116,11 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		if (detail_F != null) {
 			ft.hide(detail_F);
 		}
-		if (tao_F != null) {
-			ft.hide(tao_F);
+		if (picture_F != null) {
+			ft.hide(picture_F);
 		}
-		if (discover_F != null) {
-			ft.hide(discover_F);
+		if (error_F != null) {
+			ft.hide(error_F);
 		}
 		if (cart_F != null) {
 			ft.hide(cart_F);
@@ -153,31 +153,31 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 			break;
 		case R.id.iv_menu_1:
 			// 微淘界面
-			if (tao_F == null) {
-				tao_F = new Tao_F();
+			if (picture_F == null) {
+				picture_F = new Tao_F();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-				if (!tao_F.isHidden()) {
-					addFragment(tao_F);
-					showFragment(tao_F);
+				if (!picture_F.isHidden()) {
+					addFragment(picture_F);
+					showFragment(picture_F);
 				}
 			} else {
-				if (tao_F.isHidden()) {
-					showFragment(tao_F);
+				if (picture_F.isHidden()) {
+					showFragment(picture_F);
 				}
 			}
 			break;
 		case R.id.iv_menu_2:
 			// 发现界面
-			if (discover_F == null) {
-				discover_F = new Discover_F();
+			if (error_F == null) {
+				error_F = new Discover_F();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-				if (!discover_F.isHidden()) {
-					addFragment(discover_F);
-					showFragment(discover_F);
+				if (!error_F.isHidden()) {
+					addFragment(error_F);
+					showFragment(error_F);
 				}
 			} else {
-				if (discover_F.isHidden()) {
-					showFragment(discover_F);
+				if (error_F.isHidden()) {
+					showFragment(error_F);
 				}
 			}
 
