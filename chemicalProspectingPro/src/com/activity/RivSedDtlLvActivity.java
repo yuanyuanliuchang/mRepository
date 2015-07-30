@@ -4,7 +4,7 @@ import com.chemicalprospectingpro.R;
 import com.fragment.Cart_F;
 import com.fragment.Detail_F;
 import com.fragment.Discover_F;
-import com.fragment.Tao_F;
+import com.fragment.Picture_F;
 import com.fragment.User_F;
 import com.myInterface.IBtnCallListener;
 import com.zdp.aseo.content.AseoZdpAseo;
@@ -23,7 +23,7 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 	/** 详细界面 */
 	private Detail_F detail_F;
 	/** 照片界面 */
-	private Tao_F picture_F;
+	private Picture_F Picture_F;
 	/** 异常界面 */
 	private Discover_F error_F;
 	/** 退出界面 */
@@ -116,8 +116,8 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		if (detail_F != null) {
 			ft.hide(detail_F);
 		}
-		if (picture_F != null) {
-			ft.hide(picture_F);
+		if (Picture_F != null) {
+			ft.hide(Picture_F);
 		}
 		if (error_F != null) {
 			ft.hide(error_F);
@@ -153,16 +153,16 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 			break;
 		case R.id.iv_menu_1:
 			// 微淘界面
-			if (picture_F == null) {
-				picture_F = new Tao_F();
+			if (Picture_F == null) {
+				Picture_F = new Picture_F();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-				if (!picture_F.isHidden()) {
-					addFragment(picture_F);
-					showFragment(picture_F);
+				if (!Picture_F.isHidden()) {
+					addFragment(Picture_F);
+					showFragment(Picture_F);
 				}
 			} else {
-				if (picture_F.isHidden()) {
-					showFragment(picture_F);
+				if (Picture_F.isHidden()) {
+					showFragment(Picture_F);
 				}
 			}
 			break;

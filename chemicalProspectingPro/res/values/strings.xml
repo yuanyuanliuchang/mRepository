@@ -37,5 +37,10 @@
     <string name="date">日期：   自    </string>
     <string name="date_end">     至    </string>
     <string name="btn_look">查看</string>
+    <string name="project_Unit">单位名称：</string>
+    <string name="project_Mining_Area">矿区：   </string>
+    <string name="project_Num">编号：</string>
+    <string name="project_Record_Person">记录人：</string>
+    <string name="project_Chief">技术负责：</string>
 
 </resources>

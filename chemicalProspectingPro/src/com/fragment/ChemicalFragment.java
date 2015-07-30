@@ -5,11 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.activity.SampleRegistrationFormActivity;
 import com.chemicalprospectingpro.R;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +23,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ChemicalFragment extends Fragment implements OnClickListener {
 
@@ -159,7 +160,7 @@ public class ChemicalFragment extends Fragment implements OnClickListener {
 			break;
 		case R.id.iv_refresh:
 			// 添加新的项目
-			Toast.makeText(getActivity(), " nihao ", 3000).show();
+			startActivity(new Intent(getActivity(), SampleRegistrationFormActivity.class));
 			break;
 		default:
 			break;

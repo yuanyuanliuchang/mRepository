@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class detailFragment extends Fragment implements OnClickListener {
+public class DetailFragment extends Fragment implements OnClickListener {
 
 	public interface detailBtnListener {
 		public void exitListener();
@@ -26,10 +26,10 @@ public class detailFragment extends Fragment implements OnClickListener {
 	private detailBtnListener btnListener;
 
 	/**
-	 * Create a new instance of detailFragment, providing "num" as an argument.
+	 * Create a new instance of DetailFragment, providing "num" as an argument.
 	 */
-	static detailFragment newInstance(int num) {
-		detailFragment f = new detailFragment();
+	static DetailFragment newInstance(int num) {
+		DetailFragment f = new DetailFragment();
 
 		// Supply num input as an argument.
 		Bundle args = new Bundle();
@@ -58,7 +58,7 @@ public class detailFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		System.out.println("detailFragment--->onAttach");
+		System.out.println("DetailFragment--->onAttach");
 
 		btnListener = (detailBtnListener) activity;
 	}

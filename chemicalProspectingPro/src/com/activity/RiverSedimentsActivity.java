@@ -3,8 +3,8 @@ package com.activity;
 import com.chemicalprospectingpro.R;
 import com.fragment.ChemicalFragment;
 import com.fragment.ChemicalFragment.btnListener;
-import com.fragment.detailFragment;
-import com.fragment.detailFragment.detailBtnListener;
+import com.fragment.DetailFragment;
+import com.fragment.DetailFragment.detailBtnListener;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -49,7 +49,7 @@ public class RiverSedimentsActivity extends Activity implements btnListener, det
 		// TODO Auto-generated method stub
 		// 根据index 决定加载的列表
 		FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
-		fragmentTransaction1.replace(R.id.RivSediContainer, new detailFragment(), "detailFragment");
+		fragmentTransaction1.replace(R.id.RivSediContainer, new DetailFragment(), "DetailFragment");
 		// fragmentTransaction1
 		// .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 		fragmentTransaction1.setCustomAnimations(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
