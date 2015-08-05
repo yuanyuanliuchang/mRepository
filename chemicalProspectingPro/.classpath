@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="lib" path="E:/mRepository/chemicalProspectingPro/libs/core.jar"/>
-	<classpathentry kind="lib" path="E:/mRepository/chemicalProspectingPro/libs/cu_volley.jar"/>
-	<classpathentry kind="lib" path="E:/mRepository/chemicalProspectingPro/libs/httpcore.jar"/>
-	<classpathentry kind="lib" path="E:/mRepository/chemicalProspectingPro/libs/aseo2.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/core.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/cu_volley.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/httpcore.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/aseo2.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>

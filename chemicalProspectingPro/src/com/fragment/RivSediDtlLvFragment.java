@@ -20,8 +20,7 @@ public class RivSediDtlLvFragment extends Fragment implements OnClickListener {
 	 * android.view.ViewGroup, android.os.Bundle)
 	 */
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.main_fa, container, false);
 		ImageView proList = (ImageView) view.findViewById(R.id.iv_menu_0);
@@ -83,26 +82,23 @@ public class RivSediDtlLvFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.iv_menu_0:
-			
 
 			break;
 		case R.id.iv_menu_1:
 			// 微淘界面
-			
+
 			break;
 		case R.id.iv_menu_2:
 			// 发现界面
-			
 
 			break;
 		case R.id.iv_menu_3:
 			// 购物车界面
-			
 
 			break;
 		case R.id.iv_menu_4:
 			// 我的淘宝界面
-			
+
 			break;
 		}
 

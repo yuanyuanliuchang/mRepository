@@ -19,7 +19,7 @@ import android.widget.SimpleAdapter;
  * @author http://yecaoly.taobao.com
  */
 public class Detail_F extends Fragment {
-	ListView list;
+	private ListView detailList;
 
 	String data[] = new String[] { "1", "UK", "USA", "Japan", "German", "Canada", "ET", "Narotu" };
 	String data1[] = new String[] { "SX_AS_001", "UK", "USA", "Japan", "German", "Canada", "ET", "Narotu" };
@@ -45,7 +45,7 @@ public class Detail_F extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.river_sediment_detail, container, false);
-		list = (ListView) view.findViewById(R.id.list);
+		detailList = (ListView) view.findViewById(R.id.list);
 		SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.river_sediment_detail_list_item,
 				new String[] { "serial_number_text", "Sample_number_text", "color_text", "Horizontal_coordinates_text",
 						"Longitudinal_coordinate_text", "Repeat_sample_text", "Water_properties_text",
@@ -55,7 +55,7 @@ public class Detail_F extends Fragment {
 						R.id.Water_properties_text, R.id.Sample_weight_text, R.id.Micro_topography_text,
 						R.id.Size_or_number_text, R.id.Remarks_text });
 
-		list.setAdapter(adapter);
+		detailList.setAdapter(adapter);
 		return view;
 	}
 

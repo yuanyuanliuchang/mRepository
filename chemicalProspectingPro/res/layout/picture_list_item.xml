@@ -1,45 +1,265 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal" >
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
 
-    <ImageView
-        android:id="@+id/iv_adapter_list_pic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="5dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/my_add" />
+    <!-- ListView最左边的缩略图 -->
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:background="@drawable/image_bg"
+        android:padding="3dip" >
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="时尚女衣  流行女衣  连衣裙  半身裙  尽在恋上猫女衣坊 店铺地址：http//yecaoly.taobao.com"
-            android:textColor="@color/antiquewhite" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="￥49.0元  包邮"
-            android:textColor="@color/tv_Red" />
-
-        <TextView
-            android:id="@+id/sale_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="1.8万人付款     广州"
-            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/center" />
     </LinearLayout>
 
-</LinearLayout>
+    <!-- 歌曲名 -->
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="参照物大小："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="编号："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/title3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_marginLeft="90dp"
+        android:layout_toRightOf="@+id/title2"
+        android:text="日期："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <!-- 歌曲播放时间 -->
+
+    <TextView
+        android:id="@+id/title6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title2"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@id/thumbnail"
+        android:text="像素："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/title7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/title3"
+        android:layout_below="@id/title3"
+        android:layout_marginTop="1dip"
+        android:text="描述："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/title8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title1"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="影像目的物："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/refer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/refer_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title1"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title1"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/identifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title2"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title2"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title3"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title3"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pixel_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title6"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title6"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title7"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title7"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/object"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title8"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title8"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title6"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="方向(左)："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/dir_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title4"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/title4"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title7"
+        android:layout_below="@id/title7"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/title4"
+        android:text="方向(右)："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/dir_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/title5"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@id/title5"
+        android:gravity="center_vertical"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title4"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="参照物名称："
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+</RelativeLayout>

@@ -277,8 +277,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
 			img_groupbuy.setBackgroundResource(R.drawable.ic_menu_deal_on);
 			text_groupbuy.setTextColor(getResources().getColor(R.color.green));
 			img_merchant.setBackgroundResource(R.drawable.ic_menu_poi_off);
-			text_merchant.setTextColor(getResources()
-					.getColor(R.color.textgray));
+			text_merchant.setTextColor(getResources().getColor(R.color.textgray));
 			img_mine.setBackgroundResource(R.drawable.ic_menu_user_off);
 			text_mine.setTextColor(getResources().getColor(R.color.textgray));
 			img_more.setBackgroundResource(R.drawable.ic_menu_more_off);
@@ -290,8 +289,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
 		case R.id.img_merchant:
 			host.setCurrentTabByTag(MERCHANT_STRING);
 			img_groupbuy.setBackgroundResource(R.drawable.ic_menu_deal_off);
-			text_groupbuy.setTextColor(getResources()
-					.getColor(R.color.textgray));
+			text_groupbuy.setTextColor(getResources().getColor(R.color.textgray));
 			img_merchant.setBackgroundResource(R.drawable.ic_menu_poi_on);
 			text_merchant.setTextColor(getResources().getColor(R.color.green));
 			img_mine.setBackgroundResource(R.drawable.ic_menu_user_off);
@@ -304,11 +302,9 @@ public class MainActivity extends TabActivity implements OnClickListener {
 		case R.id.img_mine:
 			host.setCurrentTabByTag(MYSELF_STRING);
 			img_groupbuy.setBackgroundResource(R.drawable.ic_menu_deal_off);
-			text_groupbuy.setTextColor(getResources()
-					.getColor(R.color.textgray));
+			text_groupbuy.setTextColor(getResources().getColor(R.color.textgray));
 			img_merchant.setBackgroundResource(R.drawable.ic_menu_poi_off);
-			text_merchant.setTextColor(getResources()
-					.getColor(R.color.textgray));
+			text_merchant.setTextColor(getResources().getColor(R.color.textgray));
 			img_mine.setBackgroundResource(R.drawable.ic_menu_user_on);
 			text_mine.setTextColor(getResources().getColor(R.color.green));
 			img_more.setBackgroundResource(R.drawable.ic_menu_more_off);
@@ -319,11 +315,9 @@ public class MainActivity extends TabActivity implements OnClickListener {
 		case R.id.img_more:
 			host.setCurrentTabByTag(MORE_STRING);
 			img_groupbuy.setBackgroundResource(R.drawable.ic_menu_deal_off);
-			text_groupbuy.setTextColor(getResources()
-					.getColor(R.color.textgray));
+			text_groupbuy.setTextColor(getResources().getColor(R.color.textgray));
 			img_merchant.setBackgroundResource(R.drawable.ic_menu_poi_off);
-			text_merchant.setTextColor(getResources()
-					.getColor(R.color.textgray));
+			text_merchant.setTextColor(getResources().getColor(R.color.textgray));
 			img_mine.setBackgroundResource(R.drawable.ic_menu_user_off);
 			text_mine.setTextColor(getResources().getColor(R.color.textgray));
 			img_more.setBackgroundResource(R.drawable.ic_menu_more_on);
@@ -339,7 +333,6 @@ public class MainActivity extends TabActivity implements OnClickListener {
 		Display display = this.getWindowManager().getDefaultDisplay();
 		int screenWidth = display.getWidth();
 		int screenHeight = display.getHeight();
-
 		AppContext appContext = (AppContext) getApplicationContext();
 		appContext.setScreenWidth(screenWidth);
 		appContext.setScreenHeight(screenHeight);
