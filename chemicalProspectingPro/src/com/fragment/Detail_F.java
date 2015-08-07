@@ -70,6 +70,7 @@ public class Detail_F extends Fragment {
 				// TODO Auto-generated method stub
 				// 此处应该用startActivityForResult
 				startActivity(new Intent(getActivity(), AddDetail.class));
+				getActivity().overridePendingTransition(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
 			}
 		});
 		return view;

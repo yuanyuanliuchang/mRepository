@@ -25,7 +25,8 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/yuanjiao" >
-            <LinearLayout
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -44,18 +45,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="编号："
+                        android:text="序号："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutID"
+                        android:id="@+id/inputSeq"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入编号"
-                        android:inputType="textPassword"
+                        android:inputType="number"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -77,18 +77,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="日期："
+                        android:text="样号："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutDate"
+                        android:id="@+id/inputSampNo"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入日期"
-                        android:inputType="textPassword"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -110,18 +108,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="像素："
+                        android:text="颜色："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutPiexl"
+                        android:id="@+id/inputCol"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入像素"
-                        android:inputType="textPassword"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -143,18 +139,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="描述："
+                        android:text="横坐标："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutDescri"
+                        android:id="@+id/inputHoriCoord"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入描述"
-                        android:inputType="textPassword"
+                        android:inputType="number"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -176,18 +171,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="方向(左)："
+                        android:text="纵坐标："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutDirL"
+                        android:id="@+id/inputLongituCoord"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入左方向"
-                        android:inputType="textPassword"
+                        android:inputType="number"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -209,18 +203,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="方向(右)："
+                        android:text="重复标样："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutDirR"
+                        android:id="@+id/inputReSamp"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入右方向"
-                        android:inputType="textPassword"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -242,18 +234,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="参照物名称："
+                        android:text="水系性质："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutObjName"
+                        android:id="@+id/inputWaterProp"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入名称"
-                        android:inputType="textPassword"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -275,18 +265,48 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="参照物大小："
+                        android:text="样品重量："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutObjSize"
+                        android:id="@+id/inputSampWei"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入大小"
-                        android:inputType="textPassword"
+                        android:inputType="number"
+                        android:paddingBottom="2.0dip"
+                        android:paddingLeft="15.0dip"
+                        android:paddingRight="15.0dip"
+                        android:paddingTop="2.0dip"
+                        android:singleLine="true"
+                        android:textColorHint="#ff999999"
+                        android:textSize="16.0sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="微地形照："
+                        android:textSize="16.0sp" />
+
+                    <EditText
+                        android:id="@+id/inputMicroTopog"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:background="@drawable/background_corners"
+                        android:drawablePadding="15.0dip"
+                        android:ems="10"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -309,18 +329,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="影像目的物："
+                        android:text="粒度或数目："
                         android:textSize="16.0sp" />
 
                     <EditText
-                        android:id="@+id/inPutObj"
+                        android:id="@+id/inputSizeOrNUm"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
                         android:background="@drawable/background_corners"
                         android:drawablePadding="15.0dip"
                         android:ems="10"
-                        android:hint="请输入目的物"
-                        android:inputType="textPassword"
+                        android:inputType="number"
                         android:paddingBottom="2.0dip"
                         android:paddingLeft="15.0dip"
                         android:paddingRight="15.0dip"
@@ -342,26 +361,26 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/submitPic"
+                android:id="@+id/submitDetail"
                 android:layout_width="fill_parent"
                 android:layout_height="40.0dip"
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_selector"
                 android:singleLine="true"
-                android:text="提交"
+                android:text="@string/submit"
                 android:textColor="#ffffffff"
                 android:textSize="18.0sp" />
 
             <Button
-                android:id="@+id/submitCancel"
+                android:id="@+id/cancelDetail"
                 android:layout_width="fill_parent"
                 android:layout_height="40.0dip"
                 android:layout_marginLeft="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_selector"
                 android:singleLine="true"
-                android:text="取消"
+                android:text="@string/cancel"
                 android:textColor="#ffffffff"
                 android:textSize="18.0sp" />
         </LinearLayout>

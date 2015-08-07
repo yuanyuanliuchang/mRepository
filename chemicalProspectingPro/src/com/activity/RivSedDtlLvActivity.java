@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -237,4 +238,28 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		bt_menu[0].setImageResource(select_on[0]);
 		System.out.println("由Fragment中传送来的消息");
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.support.v4.app.FragmentActivity#onKeyDown(int,
+	 * android.view.KeyEvent)
+	 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			finish();
+			overridePendingTransition(R.anim.animation_enterfromleft, R.anim.animation_fadefromright);
+		}
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.support.v4.app.FragmentActivity#onKeyDown(int,
+	 * android.view.KeyEvent)
+	 */
+
 }

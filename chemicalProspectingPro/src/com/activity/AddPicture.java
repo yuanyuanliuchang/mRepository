@@ -95,7 +95,7 @@ public class AddPicture extends KJActivity {
 		// TODO Auto-generated method stub
 		super.initWidget();
 	}
-
+  
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -124,6 +124,7 @@ public class AddPicture extends KJActivity {
 			break;
 		case R.id.submitCancel:
 			finish();
+			overridePendingTransition(R.anim.animation_enterfromleft, R.anim.animation_fadefromright);
 			break;
 		default:
 			break;
@@ -338,9 +339,12 @@ public class AddPicture extends KJActivity {
 	}
 
 	private void destroyBitmap() {
-		if (!bitmap.isRecycled()) {
-			bitmap.recycle(); // 回收图片所占的内存
-			System.gc(); // 提醒系统及时回收
+		if (bitmap != null) {
+			if (!bitmap.isRecycled()) {
+				bitmap.recycle(); // 回收图片所占的内存
+				System.gc(); // 提醒系统及时回收
+			}
 		}
+
 	}
 }

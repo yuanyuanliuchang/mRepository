@@ -10,8 +10,8 @@
     <string name="mian_bottom_meself">管理</string>
     <string name="mian_bottom_more">数据更新</string>
     <string name="_">美团</string>
-    <string name="merchant_all">全部商家</string>
-    <string name="merchant_sale">优惠商家</string>
+    <string name="submit">提交</string>
+    <string name="cancel">取消</string>
     <string name="title_activity_group_buy_image_details">GroupBuyImageDetailsActivity</string>
     <string name="title_activity_today_new_order">TodayNewOrderActivity</string>
     <string name="title_activity_voucher_help">VoucherHelpActivity</string>

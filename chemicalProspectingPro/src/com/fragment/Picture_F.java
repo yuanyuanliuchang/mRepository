@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.activity.AddPicture;
-import com.activity.MainActivity;
 import com.chemicalprospectingpro.R;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -52,14 +49,7 @@ public class Picture_F extends Fragment {
 		View view = inflater.inflate(R.layout.picture_detail, container, false);
 		pictureList = (ListView) view.findViewById(R.id.picture_list);
 		addPicture = (ImageView) view.findViewById(R.id.add_picture);
-		addPicture.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(getActivity(), AddPicture.class));
-			}
-		});
+		addPicture.setOnClickListener(mListener);
 		SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.picture_list_item,
 				new String[] { "identifier", "date", "pixel_text", "description", "dir_left", "dir_right", "refer_name",
 						"refer_size", "object" },
@@ -69,6 +59,13 @@ public class Picture_F extends Fragment {
 		pictureList.setAdapter(adapter);
 		return view;
 	}
+
+	private OnClickListener mListener = new OnClickListener() {
+		public void onClick(View v) {
+			startActivity(new Intent(getActivity(), AddPicture.class));
+			getActivity().overridePendingTransition(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
+		}
+	};
 
 	private ArrayList<HashMap<String, Object>> getData() {
 		ArrayList<HashMap<String, Object>> dlist = new ArrayList<HashMap<String, Object>>();

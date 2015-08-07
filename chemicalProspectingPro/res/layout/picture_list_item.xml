@@ -6,8 +6,6 @@
     android:orientation="horizontal"
     android:padding="5dip" >
 
-    <!-- ListView最左边的缩略图 -->
-
     <LinearLayout
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
@@ -24,8 +22,6 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/center" />
     </LinearLayout>
-
-    <!-- 歌曲名 -->
 
     <TextView
         android:id="@+id/title1"
