@@ -70,6 +70,10 @@
             android:name="com.activity.AddPicture"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.activity.AddDetail"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

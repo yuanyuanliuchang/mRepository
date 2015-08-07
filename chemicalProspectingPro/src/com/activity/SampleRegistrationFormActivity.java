@@ -1,6 +1,7 @@
 package com.activity;
 
 import com.chemicalprospectingpro.R;
+import com.common.method.MyMethod;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class SampleRegistrationFormActivity extends Activity {
 	private EditText mDepartName, mMiningArea, mNumber, mRecordPerson, mChiefPerson;
 	private TextView mSubmit;
 	private String sDepartName, sMiningArea, sNumber, sRecordPerson, sChiefPerson;
+	private MyMethod mMyMethod;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class SampleRegistrationFormActivity extends Activity {
 		mNumber = (EditText) findViewById(R.id.project_Num);
 		mRecordPerson = (EditText) findViewById(R.id.recordPerson);
 		mChiefPerson = (EditText) findViewById(R.id.chiefPerson);
-
+		mMyMethod = new MyMethod();
 		mSubmit = (TextView) findViewById(R.id.submit);
 		sDepartName = mDepartName.getText().toString();
 		sMiningArea = mMiningArea.getText().toString();
@@ -40,9 +42,9 @@ public class SampleRegistrationFormActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if (isEmpty(sDepartName) || isEmpty(sMiningArea) || isEmpty(sNumber) || isEmpty(sRecordPerson)
-						|| isEmpty(sChiefPerson)) {
-					Toast.makeText(getApplicationContext(), "输入信息有误！", Toast.LENGTH_LONG).show();
+				if (mMyMethod.isEmpty(sDepartName) || mMyMethod.isEmpty(sMiningArea) || mMyMethod.isEmpty(sNumber)
+						|| mMyMethod.isEmpty(sRecordPerson) || mMyMethod.isEmpty(sChiefPerson)) {
+					Toast.makeText(getApplicationContext(), "输入信息有误！", Toast.LENGTH_SHORT).show();
 					return;
 				} else {
 					// 存信息进入数据库
@@ -53,16 +55,4 @@ public class SampleRegistrationFormActivity extends Activity {
 
 	}
 
-	private static boolean isEmpty(String input) {
-		if (input == null || "".equals(input))
-			return true;
-
-		for (int i = 0; i < input.length(); i++) {
-			char c = input.charAt(i);
-			if (c != ' ' && c != '\t' && c != '\r' && c != '\n') {
-				return false;
-			}
-		}
-		return true;
-	}
 }

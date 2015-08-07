@@ -3,13 +3,17 @@ package com.fragment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.activity.AddDetail;
 import com.chemicalprospectingpro.R;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -19,6 +23,8 @@ import android.widget.SimpleAdapter;
  * @author http://yecaoly.taobao.com
  */
 public class Detail_F extends Fragment {
+
+	private ImageView addDetailBtn;
 	private ListView detailList;
 
 	String data[] = new String[] { "1", "UK", "USA", "Japan", "German", "Canada", "ET", "Narotu" };
@@ -46,6 +52,7 @@ public class Detail_F extends Fragment {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.river_sediment_detail, container, false);
 		detailList = (ListView) view.findViewById(R.id.list);
+		addDetailBtn = (ImageView) view.findViewById(R.id.add_detail);
 		SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.river_sediment_detail_list_item,
 				new String[] { "serial_number_text", "Sample_number_text", "color_text", "Horizontal_coordinates_text",
 						"Longitudinal_coordinate_text", "Repeat_sample_text", "Water_properties_text",
@@ -56,6 +63,15 @@ public class Detail_F extends Fragment {
 						R.id.Size_or_number_text, R.id.Remarks_text });
 
 		detailList.setAdapter(adapter);
+		addDetailBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// 此处应该用startActivityForResult
+				startActivity(new Intent(getActivity(), AddDetail.class));
+			}
+		});
 		return view;
 	}
 
