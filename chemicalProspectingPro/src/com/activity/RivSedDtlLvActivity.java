@@ -222,6 +222,20 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		}
 	}
 
+	/** Fragment的回调函数 */
+	@SuppressWarnings("unused")
+	private IBtnCallListener btnCallListener;
+
+	@Override
+	public void onAttachFragment(Fragment fragment) {
+		try {
+			btnCallListener = (IBtnCallListener) fragment;
+		} catch (Exception e) {
+		}
+
+		super.onAttachFragment(fragment);
+	}
+
 	/**
 	 * 响应从Fragment中传过来的消息
 	 */
@@ -254,12 +268,5 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		}
 		return false;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.support.v4.app.FragmentActivity#onKeyDown(int,
-	 * android.view.KeyEvent)
-	 */
 
 }
