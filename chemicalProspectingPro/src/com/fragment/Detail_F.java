@@ -165,12 +165,12 @@ public class Detail_F extends Fragment
 		for (int i = 0; i < 10; i++) {
 			MessageItem item = new MessageItem();
 			if (i % 3 == 0) {
-				//item.iconRes = R.drawable.delete_default_qq_avatar;
+				// item.iconRes = R.drawable.delete_default_qq_avatar;
 				item.title = "腾讯新闻";
 				item.msg = "深圳西站增开两趟临客";
 				item.time = "下午14:15";
 			} else {
-				//item.iconRes = R.drawable.delete_wechat_icon;
+				// item.iconRes = R.drawable.delete_wechat_icon;
 				item.title = "微信团队";
 				item.msg = "欢迎你使用微信";
 				item.time = "12:28";
@@ -275,7 +275,7 @@ public class Detail_F extends Fragment
 	}
 
 	public class MessageItem {
-		//public int iconRes;
+		// public int iconRes;
 		public String title;
 		public String msg;
 		public String time;
