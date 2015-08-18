@@ -1,7 +1,6 @@
 package com.fragment;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.activity.AddDetail;
@@ -25,8 +24,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,8 +33,6 @@ public class Detail_F extends Fragment
 	private static final String TAG = "Detail_F";
 
 	private ListViewCompat mListView;
-	private ScrollView scrollview;
-
 	private List<MessageItem> mMessageItems = new ArrayList<MessageItem>();
 
 	private SlideView mLastSlideViewWithStatusOn;
@@ -46,8 +41,6 @@ public class Detail_F extends Fragment
 	private int allCount = 40;
 
 	private ImageView addDetailBtn;
-	private ListView detailList;
-
 	String data[] = new String[] { "1", "UK", "USA", "Japan", "German", "Canada", "ET", "Narotu" };
 	String data1[] = new String[] { "SX_AS_001", "UK", "USA", "Japan", "German", "Canada", "ET", "Narotu" };
 	String data2[] = new String[] { "浑浊偏黄", "UK", "USA", "Japan", "German", "Canada", "ET", "Narotu" };
@@ -72,30 +65,12 @@ public class Detail_F extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.river_sediment_detail, container, false);
-		// detailList = (ListView) view.findViewById(R.id.list);
 		addDetailBtn = (ImageView) view.findViewById(R.id.add_detail);
-		// SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData1(),
-		// R.layout.river_sediment_detail_list_item,
-		// new String[] { "serial_number_text", "Sample_number_text",
-		// "color_text", "Horizontal_coordinates_text",
-		// "Longitudinal_coordinate_text", "Repeat_sample_text",
-		// "Water_properties_text",
-		// "Sample_weight_text", "Micro_topography_text", "Size_or_number_text",
-		// "Remarks_text" },
-		// new int[] { R.id.serial_number_text, R.id.Sample_number_text,
-		// R.id.color_text,
-		// R.id.Horizontal_coordinates_text, R.id.Longitudinal_coordinate_text,
-		// R.id.Repeat_sample_text,
-		// R.id.Water_properties_text, R.id.Sample_weight_text,
-		// R.id.Micro_topography_text,
-		// R.id.Size_or_number_text, R.id.Remarks_text });
-		// detailList.setAdapter(adapter);
 		addDetailBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				// 此处应该用startActivityForResult
 				startActivity(new Intent(getActivity(), AddDetail.class));
 				getActivity().overridePendingTransition(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
 			}
@@ -108,36 +83,6 @@ public class Detail_F extends Fragment
 		mListView.setOnLoadListener(this);
 		loadData(ListViewCompat.REFRESH);
 		return view;
-	}
-
-	// @Override
-	// protected void onCreate(Bundle savedInstanceState) {
-	// // TODO Auto-generated method stub
-	// super.onCreate(savedInstanceState);
-	// setContentView(R.layout.river_sediment_detail);
-	// initView();
-	// loadData(ListViewCompat.REFRESH);
-	// }
-
-	private ArrayList<HashMap<String, Object>> getData1() {
-		ArrayList<HashMap<String, Object>> dlist = new ArrayList<HashMap<String, Object>>();
-
-		for (int i = 0; i < data.length; i++) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("serial_number_text", data[i]);
-			map.put("Sample_number_text", data1[i]);
-			map.put("color_text", data2[i]);
-			map.put("Horizontal_coordinates_text", data3[i]);
-			map.put("Longitudinal_coordinate_text", data4[i]);
-			map.put("Repeat_sample_text", data5[i]);
-			map.put("Water_properties_text", data6[i]);
-			map.put("Sample_weight_text", data7[i]);
-			map.put("Micro_topography_text", data8[i]);
-			map.put("Size_or_number_text", data9[i]);
-			map.put("Remarks_text", data10[i]);
-			dlist.add(map);
-		}
-		return dlist;
 	}
 
 	private void loadData(final int what) {
@@ -165,12 +110,10 @@ public class Detail_F extends Fragment
 		for (int i = 0; i < 10; i++) {
 			MessageItem item = new MessageItem();
 			if (i % 3 == 0) {
-				// item.iconRes = R.drawable.delete_default_qq_avatar;
 				item.title = "腾讯新闻";
 				item.msg = "深圳西站增开两趟临客";
 				item.time = "下午14:15";
 			} else {
-				// item.iconRes = R.drawable.delete_wechat_icon;
 				item.title = "微信团队";
 				item.msg = "欢迎你使用微信";
 				item.time = "12:28";
@@ -182,6 +125,7 @@ public class Detail_F extends Fragment
 
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
+			@SuppressWarnings("unchecked")
 			List<MessageItem> result = (List<MessageItem>) msg.obj;
 			switch (msg.what) {
 			case ListViewCompat.REFRESH:
@@ -247,7 +191,6 @@ public class Detail_F extends Fragment
 			item.slideView = slideView;
 			item.slideView.shrink();
 
-			// holder.icon.setImageResource(item.iconRes);
 			holder.title.setText(item.title);
 			holder.msg.setText(item.msg);
 			holder.time.setText(item.time);
@@ -274,16 +217,7 @@ public class Detail_F extends Fragment
 
 	}
 
-	public class MessageItem {
-		// public int iconRes;
-		public String title;
-		public String msg;
-		public String time;
-		public SlideView slideView;
-	}
-
 	private static class ViewHolder {
-		// public ImageView icon;
 		public TextView title;
 		public TextView msg;
 		public TextView time;
@@ -291,7 +225,6 @@ public class Detail_F extends Fragment
 		public TextView edit;
 
 		ViewHolder(View view) {
-			// icon = (ImageView) view.findViewById(R.id.icon);
 			title = (TextView) view.findViewById(R.id.color_text);
 			msg = (TextView) view.findViewById(R.id.serial_number_text);
 			time = (TextView) view.findViewById(R.id.Sample_number_text);
@@ -322,6 +255,13 @@ public class Detail_F extends Fragment
 			handler.sendMessage(msg);
 
 		}
+	}
+
+	public class MessageItem {
+		public String title;
+		public String msg;
+		public String time;
+		public SlideView slideView;
 	}
 
 	@Override

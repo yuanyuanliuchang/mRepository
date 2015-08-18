@@ -3,6 +3,7 @@ package com.app;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -35,7 +36,7 @@ public class AppContext extends Application {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-
+		
 	}
 
 	public String getA() throws IOException {

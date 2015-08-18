@@ -1,25 +1,27 @@
 package com.chemicalprospecting;
 
+import java.util.Date;
+
 import org.kymjs.kjframe.database.annotate.Id;
 
 public class DKHtsxItemData {
-	// ½«idÊôĞÔÉèÖÃÎªÖ÷¼ü£¬±ØĞëÓĞÒ»¸öÖ÷¼ü£¬
-	// ÆäÊµÈç¹û±äÁ¿ÃûÎª£º'id'»ò'_id'Ä¬ÈÏ¾ÍÊÇÖ÷¼ü
-	// Ò²¾ÍÊÇÔÚÒ»¸öJavaBeanÀïÃæ±ØĞëÓĞ'id'»ò'_id'»ò'@Id()'×¢½â£¬·ñÔò»á±¨´í
+	// ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½'id'ï¿½ï¿½'_id'Ä¬ï¿½Ï¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½JavaBeanï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'id'ï¿½ï¿½'_id'ï¿½ï¿½'@Id()'×¢ï¿½â£¬ï¿½ï¿½ï¿½ï¿½á±¨ï¿½ï¿½
 	@Id()
 	private int Id;
-	private short dataSources;// Êı¾İÀ´Ô´£º1(ÍøÕ¾)£¬2(ÖÕ¶Ë)
-	private String recordPerson;
-	private String engineer;
-	private String operator;// ²Ù×÷ÈË
-	private String operTime;// ²Ù×÷Ê±¼ä
-	private String exploratoryLine;// ¿óÇø
-	private String itemCode;// ¹¤³Ì±àºÅ
-	private int projectNum;// ÏîÄ¿ID£¬Íâ¼ü
-	private short dataStatus;// Êı¾İ×´Ì¬
-	private String realStarttime;// ¿ªÊ¼Ê±¼ä
-	private String realEndtime;// ½áÊøÊ±¼ä
-	private String recordTime;// ¼ÇÂ¼Ê±¼ä
+	private short dataSources;// æ•°æ®æ¥æº 2å­—èŠ‚
+	private String recordPerson;// 20å­—èŠ‚
+	private String engineer;// 20å­—èŠ‚
+	private String operator;// 20å­—èŠ‚
+	private String operTime;// 20å­—èŠ‚
+	private String exploratoryLine;// çŸ¿åŒº 50å­—èŠ‚
+	private String itemCode;// å·¥ç¨‹ç¼–å· 50å­—èŠ‚
+	private String projectID;// é¡¹ç›®ID
+	private short dataStatus;// æ•°æ®çŠ¶æ€ 2å­—èŠ‚
+	private Date realStarttime;// å®é™…å¼€å§‹æ—¶é—´
+	private Date realEndtime;// å®é™…ç»“æŸæ—¶é—´
+	private Date recordTime;// è®°å½•æ—¶é—´
 
 	public int getId() {
 		return Id;
@@ -85,12 +87,12 @@ public class DKHtsxItemData {
 		return itemCode;
 	}
 
-	public void setProjectNum(int projectNum) {
-		this.projectNum = projectNum;
+	public void setProjectNum(String projectNum) {
+		this.projectID = projectNum;
 	}
 
-	public int getProjectNum() {
-		return projectNum;
+	public String getProjectNum() {
+		return projectID;
 	}
 
 	public void setExploratoryLine(String exploratoryLine) {
@@ -101,27 +103,27 @@ public class DKHtsxItemData {
 		return exploratoryLine;
 	}
 
-	public void setRealStarttime(String temp_str) {
+	public void setRealStarttime(Date temp_str) {
 		realStarttime = temp_str;
 	}
 
-	public String getRealStarttime() {
+	public Date getRealStarttime() {
 		return realStarttime;
 	}
 
-	public void setRealEndtime(String temp_str) {
+	public void setRealEndtime(Date temp_str) {
 		realEndtime = temp_str;
 	}
 
-	public String getRealEndtime() {
+	public Date getRealEndtime() {
 		return realEndtime;
 	}
 
-	public void setRecordTime(String temp_str) {
+	public void setRecordTime(Date temp_str) {
 		recordTime = temp_str;
 	}
 
-	public String getRecordTime() {
+	public Date getRecordTime() {
 		return recordTime;
 	}
 }

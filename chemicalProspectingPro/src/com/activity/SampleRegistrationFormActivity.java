@@ -1,8 +1,13 @@
 package com.activity;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.kymjs.kjframe.KJDB;
+import org.kymjs.kjframe.ui.ViewInject;
+
+import com.chemicalprospecting.DKHtsxItemData;
 import com.chemicalprospectingpro.R;
 import com.common.method.MyMethod;
 
@@ -23,10 +28,12 @@ public class SampleRegistrationFormActivity extends Activity {
 
 	private EditText mDepartName, mMiningArea, mNumber, mRecordPerson, mChiefPerson, mStartTime, mEndTime;
 	private TextView mSubmit;
-	private String sDepartName, sMiningArea, sNumber, sRecordPerson, sChiefPerson;
+	private String sDepartName, sMiningArea, sNumber, sRecordPerson, sChiefPerson, sStartTime, sEndTime;
 	private MyMethod mMyMethod;
 	TimePopupWindow pwTime;
 	TimePopupWindow endpwTime;
+
+	private DKHtsxItemData dkhtsxitemdata;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,7 @@ public class SampleRegistrationFormActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.sample_registration_form);
+
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
 		final String strTime = formatter.format(curDate);
@@ -90,6 +98,8 @@ public class SampleRegistrationFormActivity extends Activity {
 				sNumber = mNumber.getText().toString();
 				sRecordPerson = mRecordPerson.getText().toString();
 				sChiefPerson = mChiefPerson.getText().toString();
+				sStartTime = mStartTime.getText().toString();
+				sEndTime = mEndTime.getText().toString();
 				// TODO Auto-generated method stub
 				if (mMyMethod.isEmpty(sDepartName) || mMyMethod.isEmpty(sMiningArea) || mMyMethod.isEmpty(sNumber)
 						|| mMyMethod.isEmpty(sRecordPerson) || mMyMethod.isEmpty(sChiefPerson)) {
@@ -98,6 +108,27 @@ public class SampleRegistrationFormActivity extends Activity {
 				} else {
 					// 存信息进入数据库
 
+					dkhtsxitemdata = new DKHtsxItemData();
+					dkhtsxitemdata.setExploratoryLine(sMiningArea);
+					dkhtsxitemdata.setItemCode(sNumber);
+					dkhtsxitemdata.setRecordPerson(sRecordPerson);
+					dkhtsxitemdata.setEngineer(sChiefPerson);
+					try {
+						dkhtsxitemdata.setRealStarttime(ConverToDate(sStartTime));
+						dkhtsxitemdata.setRealEndtime(ConverToDate(sEndTime));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					ProjectActivity.kjdb.save(dkhtsxitemdata);
+					ViewInject.toast("已添加，请查看");
+					mDepartName.setText(null);
+					mMiningArea.setText(null);
+					mNumber.setText(null);
+					mRecordPerson.setText(null);
+					mChiefPerson.setText(null);
+					mStartTime.setText(null);
+					mEndTime.setText(null);
 				}
 			}
 		});
@@ -107,5 +138,10 @@ public class SampleRegistrationFormActivity extends Activity {
 	public static String getTime(Date date) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		return format.format(date);
+	}
+
+	public static Date ConverToDate(String strDate) throws Exception {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		return df.parse(strDate);
 	}
 }

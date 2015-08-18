@@ -1,12 +1,13 @@
 package com.activity;
 
-import org.kymjs.kjframe.KJDB;
 import org.kymjs.kjframe.ui.BindView;
+
+import com.app.AppContext;
+import com.chemicalprospectingpro.R;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,20 +18,17 @@ import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.AppContext;
-import com.chemicalprospecting.DebugConfig;
-import com.chemicalprospectingpro.R;
-
+@SuppressWarnings({ "deprecation", "deprecation" })
 public class MainActivity extends TabActivity implements OnClickListener {
 
 	private final String TAG = this.getClass().getName();
 
 	private long mkeyTime;
 	private TabHost host;
-	private final static String GROUPBUY_STRING = "GROUPBUY_STRING";// �Ź�
-	private final static String MERCHANT_STRING = "MERCHANT_STRING";// �̼�
-	private final static String MYSELF_STRING = "MYSELF_STRING";// �ҵ�
-	private final static String MORE_STRING = "MORE_STRING";// ���
+	private final static String GROUPBUY_STRING = "GROUPBUY_STRING";
+	private final static String MERCHANT_STRING = "MERCHANT_STRING";
+	private final static String MYSELF_STRING = "MYSELF_STRING";
+	private final static String MORE_STRING = "MORE_STRING";
 
 	@BindView(id = R.id.img_groupbuy, click = true)
 	private ImageView img_groupbuy;
@@ -68,31 +66,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
 	@BindView(id = R.id.linearlayout_more, click = true)
 	private LinearLayout linearlayout_more;
 
-	private KJDB kjdb;
-	// private DKHttrSample DkHttrSample;
-	// private DKHtsxItemData DkHtsxItemData;
-	// private DKHtsxSample DkHtsxSample;
-	// private DKZtBasicInfo DkZtBasicInfo;
 	String temp_str = "";
-
-	// @BindView(id = R.id.projectIntroduct, click = true)
-	// private FrameLayout projLayout;
-	// @BindView(id = R.id.physicalProsp, click = true)
-	// private FrameLayout phyLayout;
-	// @BindView(id = R.id.chemicalProsp, click = true)
-	// private FrameLayout cheLayout;
-	// @BindView(id = R.id.drillingProsp, click = true)
-	// private FrameLayout drillingLayout;
-	// @BindView(id = R.id.mountainProsp, click = true)
-	// private FrameLayout mountainLayout;
-	// @BindView(id = R.id.manageRecord, click = true)
-	// private FrameLayout recordLayout;
-	// @BindView(id = R.id.progress, click = true)
-	// private FrameLayout progressLayout;
-	// @BindView(id = R.id.foundManage, click = true)
-	// private FrameLayout foundLayout;
-	// @BindView(id = R.id.updateData, click = true)
-	// private FrameLayout updateDataLayout;
 
 	/*
 	 * (non-Javadoc)
@@ -105,7 +79,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		if ((System.currentTimeMillis() - mkeyTime) > 2000) {
 			mkeyTime = System.currentTimeMillis();
-			Toast.makeText(this, "�ٰ�һ���˳�Զ���ն�", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "再按一次推出应用！", Toast.LENGTH_SHORT).show();
 		} else {
 			super.onBackPressed();
 		}
@@ -167,73 +141,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
 	}
 
 	public void init() {
-		kjdb = KJDB.create();
-		if (DebugConfig.DEBUG) {
-			kjdb.dropDb();
-			Log.v("TAG", "dropDB");
-		} else {
 
-			// Date now = new Date();
-			// DateFormat d1 = DateFormat.getDateInstance();
-			// String str1 = d1.format(now);
-			// DkHtsxItemData = new DKHtsxItemData();
-			// DkHtsxItemData.setDataSources((short) 0);
-			// DkHtsxItemData.setEngineer("����һ��");
-			// DkHtsxItemData.setRecordPerson("����һ��");
-			// DkHtsxItemData.setExploratoryLine("changyuan");
-			// DkHtsxItemData.setItemCode("changyuan");
-			// DkHtsxItemData.setOperTime("changyuan");
-			// DkHtsxItemData.setOperator("changyuan");
-			// DkHtsxItemData.setProjectNum(1);
-			// DkHtsxItemData.setRealEndtime(temp_str);
-			// DkHtsxItemData.setRealStarttime(temp_str);
-			// DkHtsxItemData.setRecordTime(temp_str);
-			// kjdb.save(DkHtsxItemData);
-			//
-			// DkHtsxSample = new DKHtsxSample();
-			// DkHtsxSample.setSampleCode("changyuan");
-			// DkHtsxSample.setCheckPerson("changyuan");
-			// DkHtsxSample.setDataSources(1);
-			// DkHtsxSample.setItemID(1);
-			// DkHtsxSample.setOperator("changyuan");
-			// DkHtsxSample.setOperTime("15-6-23");
-			// DkHtsxSample.setOreDistrict("changyuan");
-			// DkHtsxSample.setPosX((float) 1.0);
-			// DkHtsxSample.setPosY((float) 2.0);
-			// DkHtsxSample.setRecordPerson("changyuan");
-			// DateFormat df = new SimpleDateFormat("HH:mm:ss");
-			// String time = df.format(new Date());
-			// DkHtsxSample.setRecordTime(time);
-			// DkHtsxSample.setRemarks("changyuan");
-			// DkHtsxSample.setRepeFlag("changyuan");
-			// DkHtsxSample.setSamplColor("��ɫ");
-			// DkHtsxSample.setSampleParticle((float) 1.0);
-			// DkHtsxSample.setSampler("changyuan");
-			// DateFormat dfDate = new SimpleDateFormat("yyyy��MM��dd��");
-			// time = dfDate.format(new Date());
-			// DkHtsxSample.setSampleTime(time);
-			// DkHtsxSample.setSampleWeight((float) 2.0);
-			// DkHtsxSample.setWaterProp("changyuan");
-			// kjdb.save(DkHtsxSample);
-			//
-			// DkHttrSample = new DKHttrSample();
-			// DkHttrSample.setCheckPerson("changyuan");
-			// DkHttrSample.setDataSources(1);
-			// kjdb.save(DkHttrSample);
-			//
-			// DkZtBasicInfo = new DKZtBasicInfo();
-			// DkZtBasicInfo.setExploratoryLine(" nihao ");
-			// DkZtBasicInfo.setHole_top_y((float) 10.0);
-			// DkZtBasicInfo.setHoleCode("nimenhao");
-			// DkZtBasicInfo.setHoleTopX((float) 123.09);
-			// kjdb.save(DkZtBasicInfo);
-
-			Log.v(TAG, "save");
-		}
-		// javaBean = new DKHtsxItemData();
-		// javaBean.set_RECORD_TIME(new Date());
-		// javaBean.set_REAL_ENDTIME(new Date());
-		// javaBean.set_REAL_STARTTIME(new Date());
 	}
 
 	private void setGroupBuyTab() {

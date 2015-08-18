@@ -35,19 +35,6 @@
             android:layout_weight="1"
             android:text="生活卷"
             android:textColor="@color/tv_Black" />
-
-        <Button
-            android:id="@+id/vlist_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/lv_btn_pressed_bg"
-            android:paddingBottom="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp"
-            android:text="查看" />
     </LinearLayout>
 
 </RelativeLayout>

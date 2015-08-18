@@ -15,6 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.kymjs.kjframe.KJActivity;
+import org.kymjs.kjframe.KJDB;
+
 import com.chemicalprospectingpro.R;
 
 /**
@@ -23,44 +26,20 @@ import com.chemicalprospectingpro.R;
  * @author zihao 2013-11-12
  * 
  */
-public class ProjectActivity extends Activity {
+public class ProjectActivity extends KJActivity {
 
 	// 这个数组是用来存储一级item的点击次数的，根据点击次数设置一级标签的选中、为选中状�?
-	private int[] group_checked = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	private int[] group_checked = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	// 用来标识是否设置二級item背景色为绿色,初始值为-1既为选中状�?
 	private int child_groupId = -1;
 	private int child_childId = -1;
-	private Activity mContext;
+	public static KJDB kjdb;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onStart()
-	 */
 	@Override
-	protected void onStart() {
+	public void setRootView() {
 		// TODO Auto-generated method stub
-		super.onStart();
-		mContext = this;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onPause()
-	 */
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-
-	}
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_layout);
+		kjdb = KJDB.create();
 
 		ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.list);
 		// 设置默认图标为不显示状�?
@@ -71,15 +50,13 @@ public class ProjectActivity extends Activity {
 		expandableListView.setOnGroupClickListener(new OnGroupClickListener() {
 
 			@Override
-			public boolean onGroupClick(ExpandableListView parent, View v,
-					int groupPosition, long id) {
+			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
 				if (groupPosition == 3) {
 					return true;
 				} else {
 					group_checked[groupPosition] = group_checked[groupPosition] + 1;
 					// 刷新界面
-					((BaseExpandableListAdapter) adapter)
-							.notifyDataSetChanged();
+					((BaseExpandableListAdapter) adapter).notifyDataSetChanged();
 					return false;
 				}
 			}
@@ -89,8 +66,8 @@ public class ProjectActivity extends Activity {
 		expandableListView.setOnChildClickListener(new OnChildClickListener() {
 
 			@Override
-			public boolean onChildClick(ExpandableListView parent, View v,
-					int groupPosition, int childPosition, long id) {
+			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition,
+					long id) {
 				// 将被点击的一丶二级标签的位置记录下来
 				child_groupId = groupPosition;
 				child_childId = childPosition;
@@ -104,31 +81,24 @@ public class ProjectActivity extends Activity {
 
 	private void startActivity(int group_id, int child_id) {
 		if (group_id == 1 && child_id == 0) {
-			Intent intent = new Intent(ProjectActivity.this,
-					RiverSedimentsActivity.class);
+			Intent intent = new Intent(ProjectActivity.this, RiverSedimentsActivity.class);
 			startActivity(intent);
-			overridePendingTransition(R.anim.animation_fadefromright,
-					R.anim.animation_fadefromleft);
+			overridePendingTransition(R.anim.animation_fadefromright, R.anim.animation_fadefromleft);
 		}
 	}
 
 	final ExpandableListAdapter adapter = new BaseExpandableListAdapter() {
 		// �?��标签上的logo图片数据�?
 		// �?��标签上的标题数据�?
-		private String[] group_title_arry = new String[] { "物探工程", "化探工程",
-				"山地工程", "钻探工程" };
+		private String[] group_title_arry = new String[] { "物探工程", "化探工程", "山地工程", "钻探工程" };
 		// 子视图显示文�?
-		private String[][] child_text_array = new String[][] { { "电法", "磁法" },
-				{ "水系沉积物", "土壤测量", "剖面测量", "岩石测量" }, { "槽探", "坑探", "浅井", },
-				{ "" } };
+		private String[][] child_text_array = new String[][] { { "电法", "磁法" }, { "水系沉积物", "土壤测量", "剖面测量", "岩石测量" },
+				{ "槽探", "坑探", "浅井", }, { "" } };
 		// �?��标签上的状�?图片数据�?
-		int[] group_state_array = new int[] { R.drawable.group_down,
-				R.drawable.group_up };
+		int[] group_state_array = new int[] { R.drawable.group_down, R.drawable.group_up };
 		// 一级菜单显示的图片
-		int[] group_image = new int[] { R.drawable.geophysical_exploration,
-				R.drawable.geochemical_exploration,
-				R.drawable.mountain_project, R.drawable.drilling,
-				R.drawable.child_right };
+		int[] group_image = new int[] { R.drawable.geophysical_exploration, R.drawable.geochemical_exploration,
+				R.drawable.mountain_project, R.drawable.drilling, R.drawable.child_right };
 
 		// 重写ExpandableListAdapter中的各个方法
 		/**
@@ -191,25 +161,19 @@ public class ProjectActivity extends Activity {
 		 * 对一级标签进行设�?
 		 */
 		@Override
-		public View getGroupView(int groupPosition, boolean isExpanded,
-				View convertView, ViewGroup parent) {
+		public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 			// 为视图对象指定布�?
-			convertView = (LinearLayout) LinearLayout.inflate(getBaseContext(),
-					R.layout.group_layout, null);
-			RelativeLayout myLayout = (RelativeLayout) convertView
-					.findViewById(R.id.group_layout);
+			convertView = (LinearLayout) LinearLayout.inflate(getBaseContext(), R.layout.group_layout, null);
+			RelativeLayout myLayout = (RelativeLayout) convertView.findViewById(R.id.group_layout);
 			// 组标示控件
-			ImageView group_indicate = (ImageView) convertView
-					.findViewById(R.id.group_indicate);
+			ImageView group_indicate = (ImageView) convertView.findViewById(R.id.group_indicate);
 			/**
 			 * 声明视图上要显示的控�?
 			 */
 			// 新建�?��TextView对象，用来显示一级标签上的标题信�?
-			TextView group_title = (TextView) convertView
-					.findViewById(R.id.group_title);
+			TextView group_title = (TextView) convertView.findViewById(R.id.group_title);
 			// 新建�?��TextView对象，用来显示一级标签上的大体描述的信息
-			ImageView group_state = (ImageView) convertView
-					.findViewById(R.id.group_state);
+			ImageView group_state = (ImageView) convertView.findViewById(R.id.group_state);
 			/**
 			 * 设置相应控件的内�?
 			 */
@@ -240,17 +204,15 @@ public class ProjectActivity extends Activity {
 		 * 对一级标签下的二级标签进行设�?
 		 */
 		@Override
-		public View getChildView(int groupPosition, int childPosition,
-				boolean isLastChild, View convertView, ViewGroup parent) {
+		public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView,
+				ViewGroup parent) {
 
-			convertView = (RelativeLayout) RelativeLayout.inflate(
-					getBaseContext(), R.layout.child_layout, null);
+			convertView = (RelativeLayout) RelativeLayout.inflate(getBaseContext(), R.layout.child_layout, null);
 			/**
 			 * 声明视图上要显示的控�?
 			 */
 			// 新建�?��TextView对象，用来显示具体内�?
-			TextView child_text = (TextView) convertView
-					.findViewById(R.id.child_text);
+			TextView child_text = (TextView) convertView.findViewById(R.id.child_text);
 			// ImageView child_indicate = (ImageView) convertView
 			// .findViewById(R.id.child_indicate);
 			/**
@@ -260,8 +222,7 @@ public class ProjectActivity extends Activity {
 			child_text.setText(child_text_array[groupPosition][childPosition]);
 			// child_indicate.setBackgroundResource(group_image[4]);
 			// 判断item的位置是否相同，如相同，则表示为选中状�?，更改其背景颜色，如不相同，则设置背景色为白�?
-			if (child_groupId == groupPosition
-					&& child_childId == childPosition) {
+			if (child_groupId == groupPosition && child_childId == childPosition) {
 				// 设置背景色为绿色
 				// convertView.setBackgroundColor(Color.GRAY);
 			} else {

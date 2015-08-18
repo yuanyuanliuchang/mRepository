@@ -45,13 +45,17 @@
         android:layout_below="@id/list_head_content"
         android:orientation="vertical" >
 
-        <ListView
+        <com.chimecal.ui.ListViewCompatChemical
             android:id="@+id/listView"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:divider="@drawable/liner"
-            android:dividerHeight="1dip" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff4f7f9"
+            android:cacheColorHint="#00000000"
+            android:divider="#dddbdb"
+            android:dividerHeight="1.0px"
+            android:drawSelectorOnTop="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" />
     </LinearLayout>
 
 </RelativeLayout>
