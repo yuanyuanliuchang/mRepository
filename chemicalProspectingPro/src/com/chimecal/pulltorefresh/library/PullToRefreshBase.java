@@ -15,12 +15,12 @@
  *******************************************************************************/
 package com.chimecal.pulltorefresh.library;
 
-import com.chemicalprospectingpro.R;
 import com.chimecal.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.chimecal.pulltorefresh.library.internal.LoadingLayout;
 import com.chimecal.pulltorefresh.library.internal.RotateLoadingLayout;
 import com.chimecal.pulltorefresh.library.internal.Utils;
 import com.chimecal.pulltorefresh.library.internal.ViewCompat;
+import com.kanyuan.circleloader.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;

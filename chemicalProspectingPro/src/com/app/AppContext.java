@@ -34,9 +34,8 @@ public class AppContext extends Application {
 
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
 		super.onCreate();
-		
+
 	}
 
 	public String getA() throws IOException {

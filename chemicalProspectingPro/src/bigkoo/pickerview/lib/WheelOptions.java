@@ -2,7 +2,7 @@ package bigkoo.pickerview.lib;
 
 import java.util.ArrayList;
 
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 
 import android.view.View;
 

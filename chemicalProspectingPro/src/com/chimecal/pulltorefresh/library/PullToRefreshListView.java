@@ -15,9 +15,9 @@
  *******************************************************************************/
 package com.chimecal.pulltorefresh.library;
 
-import com.chemicalprospectingpro.R;
 import com.chimecal.pulltorefresh.library.internal.EmptyViewMethodAccessor;
 import com.chimecal.pulltorefresh.library.internal.LoadingLayout;
+import com.kanyuan.circleloader.R;
 
 import android.annotation.TargetApi;
 import android.content.Context;

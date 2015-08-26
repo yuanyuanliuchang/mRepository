@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my="http://schemas.android.com/apk/res/com.kanyuan.circleloader"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_Gray_light"
+    android:background="#fff4f7f9"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -39,13 +40,29 @@
             android:src="@drawable/my_add" />
     </LinearLayout>
 
+    <com.kanyuan.circleloader.CircleLoader
+        android:id="@+id/circle_view_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_head_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        my:circleColor="#8EE5EE"
+        my:circleRadius="15dp"
+        my:circleStrokeWidth="2dp"
+        my:text="正在加载……"
+        my:textColor="#8EE5EE"
+        my:textFakeBold="true"
+        my:textSize="16sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/list_head_content"
+        android:background="#fff4f7f9"
         android:orientation="vertical" >
 
-        <com.chimecal.ui.ListViewCompatChemical
+        <com.gumei.ui.ListViewCompatChamecal
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

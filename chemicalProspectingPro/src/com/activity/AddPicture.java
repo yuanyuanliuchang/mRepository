@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 import com.common.method.MyMethod;
 
 import android.app.AlertDialog;

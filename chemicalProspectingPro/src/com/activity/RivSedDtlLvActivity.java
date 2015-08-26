@@ -1,14 +1,15 @@
 package com.activity;
 
-import com.chemicalprospectingpro.R;
-import com.fragment.Cart_F;
-import com.fragment.Detail_F;
-import com.fragment.Discover_F;
-import com.fragment.Picture_F;
-import com.fragment.User_F;
+import com.fragment.DetaiListlFragment;
+import com.fragment.DiscoverFragment;
+import com.fragment.PictureFragment;
+import com.fragment.ProjectListFragment;
+import com.fragment.QuitFragment;
+import com.kanyuan.circleloader.R;
 import com.myInterface.IBtnCallListener;
 import com.zdp.aseo.content.AseoZdpAseo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -21,16 +22,18 @@ import android.widget.TextView;
 
 public class RivSedDtlLvActivity extends FragmentActivity implements OnClickListener, IBtnCallListener {
 
+	private int myShowId;
+
 	/** 详细界面 */
-	private Detail_F detail_F;
+	private DetaiListlFragment detaiListlFragment;
 	/** 照片界面 */
-	private Picture_F Picture_F;
+	private PictureFragment PictureFragment;
 	/** 异常界面 */
-	private Discover_F error_F;
+	private DiscoverFragment error_F;
 	/** 退出界面 */
-	private Cart_F cart_F;
+	private QuitFragment quitFragment;
 	/** 我的淘宝界面 */
-	private User_F user_F;
+	private ProjectListFragment projectListFragment;
 	// 界面底部的菜单按钮
 	private ImageView[] bt_menu = new ImageView[5];
 	// 界面底面的文字
@@ -58,39 +61,28 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_fa);
+		Intent intent = getIntent();
+		// 根据id查找数据库记录
+		myShowId = intent.getIntExtra(RiverSedimentsActivity.LISTID, 0);
 		initView();
 	}
 
 	private void initView() {
-		// 找到底部菜单的按钮并设置监听
 		for (int i = 0; i < bt_menu.length; i++) {
 			bt_menu[i] = (ImageView) findViewById(bt_menu_id[i]);
 			tv_menu[i] = (TextView) findViewById(bt_text_id[i]);
 			bt_menu[i].setOnClickListener(this);
 		}
-
-		// 初始化默认显示的界面
-		if (detail_F == null) {
-			detail_F = new Detail_F();
-			addFragment(detail_F);
-			showFragment(detail_F);
+		if (detaiListlFragment == null) {
+			detaiListlFragment = new DetaiListlFragment();
+			addFragment(detaiListlFragment);
+			showFragment(detaiListlFragment);
 		} else {
-			showFragment(detail_F);
+			showFragment(detaiListlFragment);
 		}
-		// 设置默认首页为点击时的图片
 		bt_menu[0].setImageResource(select_on[0]);
 		tv_menu[0].setTextColor(getResources().getColor(R.color.green));
 		AseoZdpAseo.init(this, AseoZdpAseo.SCREEN_TYPE);
-		// ImageView proList = (ImageView) findViewById(R.id.iv_menu_0);
-		// ImageView picList = (ImageView) findViewById(R.id.iv_menu_1);
-		// ImageView errorList = (ImageView) findViewById(R.id.iv_menu_2);
-		// ImageView quit = (ImageView) findViewById(R.id.iv_menu_3);
-		// ImageView lookBtn = (ImageView) findViewById(R.id.iv_menu_4);
-		// proList.setOnClickListener(this);
-		// picList.setOnClickListener(this);
-		// errorList.setOnClickListener(this);
-		// quit.setOnClickListener(this);
-		// lookBtn.setOnClickListener(this);
 	}
 
 	/** 添加Fragment **/
@@ -107,6 +99,21 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		ft.commit();
 	}
 
+	/**
+	 * @return the myShowId
+	 */
+	public int getMyShowId() {
+		return myShowId;
+	}
+
+	/**
+	 * @param myShowId
+	 *            the myShowId to set
+	 */
+	public void setMyShowId(int myShowId) {
+		this.myShowId = myShowId;
+	}
+
 	/** 显示Fragment **/
 	public void showFragment(Fragment fragment) {
 		FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
@@ -114,20 +121,20 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		ft.setCustomAnimations(R.anim.animation_enterfromright, R.anim.animation_fadefromleft);
 
 		// 判断页面是否已经创建，如果已经创建，那么就隐藏掉
-		if (detail_F != null) {
-			ft.hide(detail_F);
+		if (detaiListlFragment != null) {
+			ft.hide(detaiListlFragment);
 		}
-		if (Picture_F != null) {
-			ft.hide(Picture_F);
+		if (PictureFragment != null) {
+			ft.hide(PictureFragment);
 		}
 		if (error_F != null) {
 			ft.hide(error_F);
 		}
-		if (cart_F != null) {
-			ft.hide(cart_F);
+		if (quitFragment != null) {
+			ft.hide(quitFragment);
 		}
-		if (user_F != null) {
-			ft.hide(user_F);
+		if (projectListFragment != null) {
+			ft.hide(projectListFragment);
 		}
 
 		ft.show(fragment);
@@ -141,36 +148,36 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 		switch (v.getId()) {
 		case R.id.iv_menu_0:
 			// 主界面
-			if (detail_F == null) {
-				detail_F = new Detail_F();
+			if (detaiListlFragment == null) {
+				detaiListlFragment = new DetaiListlFragment();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-				addFragment(detail_F);
-				showFragment(detail_F);
+				addFragment(detaiListlFragment);
+				showFragment(detaiListlFragment);
 			} else {
-				if (detail_F.isHidden()) {
-					showFragment(detail_F);
+				if (detaiListlFragment.isHidden()) {
+					showFragment(detaiListlFragment);
 				}
 			}
 			break;
 		case R.id.iv_menu_1:
 			// 微淘界面
-			if (Picture_F == null) {
-				Picture_F = new Picture_F();
+			if (PictureFragment == null) {
+				PictureFragment = new PictureFragment();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-				if (!Picture_F.isHidden()) {
-					addFragment(Picture_F);
-					showFragment(Picture_F);
+				if (!PictureFragment.isHidden()) {
+					addFragment(PictureFragment);
+					showFragment(PictureFragment);
 				}
 			} else {
-				if (Picture_F.isHidden()) {
-					showFragment(Picture_F);
+				if (PictureFragment.isHidden()) {
+					showFragment(PictureFragment);
 				}
 			}
 			break;
 		case R.id.iv_menu_2:
 			// 发现界面
 			if (error_F == null) {
-				error_F = new Discover_F();
+				error_F = new DiscoverFragment();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
 				if (!error_F.isHidden()) {
 					addFragment(error_F);
@@ -185,28 +192,28 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 			break;
 		case R.id.iv_menu_3:
 			// 购物车界面
-			if (cart_F != null) {
-				removeFragment(cart_F);
-				cart_F = null;
+			if (quitFragment != null) {
+				removeFragment(quitFragment);
+				quitFragment = null;
 			}
-			cart_F = new Cart_F();
+			quitFragment = new QuitFragment();
 			// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-			addFragment(cart_F);
-			showFragment(cart_F);
+			addFragment(quitFragment);
+			showFragment(quitFragment);
 
 			break;
 		case R.id.iv_menu_4:
 			// 我的淘宝界面
-			if (user_F == null) {
-				user_F = new User_F();
+			if (projectListFragment == null) {
+				projectListFragment = new ProjectListFragment();
 				// 判断当前界面是否隐藏，如果隐藏就进行添加显示，false表示显示，true表示当前界面隐藏
-				if (!user_F.isHidden()) {
-					addFragment(user_F);
-					showFragment(user_F);
+				if (!projectListFragment.isHidden()) {
+					addFragment(projectListFragment);
+					showFragment(projectListFragment);
 				}
 			} else {
-				if (user_F.isHidden()) {
-					showFragment(user_F);
+				if (projectListFragment.isHidden()) {
+					showFragment(projectListFragment);
 				}
 			}
 			break;
@@ -241,12 +248,12 @@ public class RivSedDtlLvActivity extends FragmentActivity implements OnClickList
 	 */
 	@Override
 	public void transferMsg() {
-		if (detail_F == null) {
-			detail_F = new Detail_F();
-			addFragment(detail_F);
-			showFragment(detail_F);
+		if (detaiListlFragment == null) {
+			detaiListlFragment = new DetaiListlFragment();
+			addFragment(detaiListlFragment);
+			showFragment(detaiListlFragment);
 		} else {
-			showFragment(detail_F);
+			showFragment(detaiListlFragment);
 		}
 		bt_menu[3].setImageResource(select_off[3]);
 		bt_menu[0].setImageResource(select_on[0]);

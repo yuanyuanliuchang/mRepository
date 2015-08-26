@@ -1,28 +1,31 @@
 package com.chemicalprospecting;
 
 import org.kymjs.kjframe.database.annotate.Id;
+import org.kymjs.kjframe.database.annotate.ManyToOne;
 
 public class DKImage {
 	@Id()
 	private int Id;
-	private String imageCode;// ÕÕÆ¬±àºÅ
-	private String itemId;// ¹¤³Ì±àºÅ
-	private String sampleId;// ÑùÆ·±àºÅ
-	private String imageObject;// Ó°ÏñÄ¿µÄÎï
-	private String recordTime;// ¼ÇÂ¼Ê±¼ä
-	private String imageTime;// ÅÄÕÕÊ±¼ä
-	private String pixel;// ÏñËØ
-	private int direction;// ·½Ïò
-	private String referenceObj;// ²ÎÕÕÎïÃû³Æ
-	private String referenceObjSize;// ²ÎÕÕÎï´óÐ¡
-	private String description;// ÃèÊö
-	private float imagePosX;// ÅÄÕÕ×ø±êX(¾­Î³¶È) ±£Áô6Î»Ð¡Êý
-	private float imagePosY;// ÅÄÕÕ×ø±êY(¾­Î³¶È) ±£Áô6Î»Ð¡Êý
-	private String fileId;// ÎÄ¼þID
-	private short dataSources;// Êý¾ÝÀ´Ô´(1:ÍøÕ¾ 2:ÖÕ¶Ë)
-	private String operator;// ²Ù×÷ÈË
-	private String operTime;// ²Ù×÷Ê±¼ä
-	private short dataStatus;// ×´Ì¬(0:Õý³£ 1:É¾³ý)
+	private String imageCode;//
+	private String itemId;//
+	private String sampleId;//
+	private String imageObject;//
+	private String recordTime;//
+	private String imageTime;// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String pixel;// ï¿½ï¿½ï¿½ï¿½
+	private int direction;// ï¿½ï¿½ï¿½ï¿½
+	private String referenceObj;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String referenceObjSize;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡
+	private String description;// ï¿½ï¿½ï¿½ï¿½
+	private float imagePosX;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½X(ï¿½ï¿½Î³ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½6Î»Ð¡ï¿½ï¿½
+	private float imagePosY;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Y(ï¿½ï¿½Î³ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½6Î»Ð¡ï¿½ï¿½
+	private String fileId;// ï¿½Ä¼ï¿½ID
+	private short dataSources;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´(1:ï¿½ï¿½Õ¾ 2:ï¿½Õ¶ï¿½)
+	private String operator;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String operTime;// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private short dataStatus;// ×´Ì¬(0:ï¿½ï¿½ï¿½ï¿½ 1:É¾ï¿½ï¿½)
+	@ManyToOne(column = "dkHtsxItemDataId")
+	private DKHtsxItemData dkHtsxItemdata;
 
 	public int getId() {
 		return Id;

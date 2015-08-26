@@ -1,8 +1,11 @@
 package com.activity;
 
-import android.app.Activity;
+import org.kymjs.kjframe.KJActivity;
+import org.kymjs.kjframe.KJDB;
+
+import com.kanyuan.circleloader.R;
+
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -15,17 +18,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.kymjs.kjframe.KJActivity;
-import org.kymjs.kjframe.KJDB;
-
-import com.chemicalprospectingpro.R;
-
-/**
- * 主界�?
- * 
- * @author zihao 2013-11-12
- * 
- */
 public class ProjectActivity extends KJActivity {
 
 	// 这个数组是用来存储一级item的点击次数的，根据点击次数设置一级标签的选中、为选中状�?
@@ -40,7 +32,7 @@ public class ProjectActivity extends KJActivity {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_layout);
 		kjdb = KJDB.create();
-
+		// kjdb.dropDb();
 		ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.list);
 		// 设置默认图标为不显示状�?
 		expandableListView.setGroupIndicator(null);
@@ -91,9 +83,11 @@ public class ProjectActivity extends KJActivity {
 		// �?��标签上的logo图片数据�?
 		// �?��标签上的标题数据�?
 		private String[] group_title_arry = new String[] { "物探工程", "化探工程", "山地工程", "钻探工程" };
-		// 子视图显示文�?
+		// 子视图显示文字
 		private String[][] child_text_array = new String[][] { { "电法", "磁法" }, { "水系沉积物", "土壤测量", "剖面测量", "岩石测量" },
 				{ "槽探", "坑探", "浅井", }, { "" } };
+		// 子视图显示图片
+		private int[][] child_image = new int[][] { { R.drawable.electric, R.drawable.magnetic } };
 		// �?��标签上的状�?图片数据�?
 		int[] group_state_array = new int[] { R.drawable.group_down, R.drawable.group_up };
 		// 一级菜单显示的图片
@@ -213,6 +207,7 @@ public class ProjectActivity extends KJActivity {
 			 */
 			// 新建�?��TextView对象，用来显示具体内�?
 			TextView child_text = (TextView) convertView.findViewById(R.id.child_text);
+			ImageView childImageView = (ImageView) convertView.findViewById(R.id.child_image);
 			// ImageView child_indicate = (ImageView) convertView
 			// .findViewById(R.id.child_indicate);
 			/**
@@ -220,6 +215,7 @@ public class ProjectActivity extends KJActivity {
 			 */
 			// 设置要显示的文本信息
 			child_text.setText(child_text_array[groupPosition][childPosition]);
+			// childImageView.setBackgroundResource(child_image[0][0]);
 			// child_indicate.setBackgroundResource(group_image[4]);
 			// 判断item的位置是否相同，如相同，则表示为选中状�?，更改其背景颜色，如不相同，则设置背景色为白�?
 			if (child_groupId == groupPosition && child_childId == childPosition) {

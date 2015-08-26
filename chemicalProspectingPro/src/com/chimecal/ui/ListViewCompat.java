@@ -1,7 +1,7 @@
 package com.chimecal.ui;
 
-import com.chemicalprospectingpro.R;
-import com.fragment.Detail_F.MessageItem;
+import com.fragment.DetaiListlFragment.MessageItem;
+import com.kanyuan.circleloader.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 
 import android.app.Activity;
 import android.content.Context;

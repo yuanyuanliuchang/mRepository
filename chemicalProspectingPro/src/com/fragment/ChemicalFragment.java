@@ -8,13 +8,14 @@ import java.util.Map;
 import com.activity.ProjectActivity;
 import com.activity.SampleRegistrationFormActivity;
 import com.chemicalprospecting.DKHtsxItemData;
-import com.chemicalprospectingpro.R;
 import com.chimecal.ui.ListViewCompat;
-import com.chimecal.ui.ListViewCompatChemical;
-import com.chimecal.ui.ListViewCompatChemical.OnLoadListener;
-import com.chimecal.ui.ListViewCompatChemical.OnRefreshListener;
 import com.chimecal.ui.SlideView;
 import com.chimecal.ui.SlideView.OnSlideListener;
+import com.gumei.ui.ListViewCompatChamecal;
+import com.gumei.ui.ListViewCompatChamecal.OnLoadListener;
+import com.gumei.ui.ListViewCompatChamecal.OnRefreshListener;
+import com.kanyuan.circleloader.CircleLoader;
+import com.kanyuan.circleloader.R;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -27,25 +28,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ChemicalFragment extends Fragment
-		implements OnClickListener, OnItemClickListener, OnSlideListener, OnRefreshListener, OnLoadListener {
+		implements OnClickListener, OnSlideListener, OnRefreshListener, OnLoadListener {
 
-	private List<Map<String, Object>> mData;
 	private final static String TAG = ChemicalFragment.class.getName();
-
-	private ListViewCompatChemical mListView;
+	private ListViewCompatChamecal mListView;
 	private List<MessageItem> mChemicalMessageItems = new ArrayList<MessageItem>();
-
+	private CircleLoader circleLoader;
 	private SlideView mLastSlideViewWithStatusOn;
-
+	private String deleteItemCode;
+	private String lookItmeCode;
+	private DKHtsxItemData tempDKHtsxItemData;
 	private SlideAdapter adapter;
+	private btnListener mylookListener;
+	private Boolean isFirstLoad = true;
 
 	/**
 	 * Create a new instance of ChemicalFragment, providing "num" as an
@@ -53,7 +54,6 @@ public class ChemicalFragment extends Fragment
 	 */
 	static ChemicalFragment newInstance(int num) {
 		ChemicalFragment f = new ChemicalFragment();
-
 		// Supply num input as an argument.
 		Bundle args = new Bundle();
 		args.putInt("num", num);
@@ -69,6 +69,11 @@ public class ChemicalFragment extends Fragment
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
+		try {
+			mylookListener = (btnListener) activity;
+		} catch (ClassCastException e) {
+			throw new ClassCastException(activity.toString() + " must implement OnHeadlineSelectedListener");
+		}
 		System.out.println("ChemicalFragment--->onAttach");
 	}
 
@@ -80,23 +85,43 @@ public class ChemicalFragment extends Fragment
 	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.user_opinion, container, false);
 		TextView titleTv = (TextView) view.findViewById(R.id.list_title);
 		titleTv.setText("方法登记表");
 		ImageView exitImage = (ImageView) view.findViewById(R.id.iv_back);
 		ImageView addImage = (ImageView) view.findViewById(R.id.iv_refresh);
+		circleLoader = (CircleLoader) view.findViewById(R.id.circle_view_loader);
 		exitImage.setOnClickListener(this);
 		addImage.setOnClickListener(this);
-		mListView = (ListViewCompatChemical) view.findViewById(R.id.listView);
+		mListView = (ListViewCompatChamecal) view.findViewById(R.id.listView);
+		loadData(ListViewCompat.REFRESH);
+		if (!isFirstLoad) {
+			circleLoader.setVisibility(View.INVISIBLE);
+		} else {
+			isFirstLoad = false;
+		}
 		adapter = new SlideAdapter();
 		mListView.setAdapter(adapter);
-		mListView.setOnItemClickListener(this);
 		mListView.setOnRefreshListener(this);
 		mListView.setOnLoadListener(this);
-		loadData(ListViewCompat.REFRESH);
+		mListView.setLoadEnable(false);
+
 		// mData = queryAll();
 		return view;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Fragment#onResume()
+	 */
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		// circleLoader.setVisibility(View.INVISIBLE);
+		loadData(ListViewCompat.REFRESH);
+		System.out.print("onresue");
 	}
 
 	/*
@@ -141,7 +166,6 @@ public class ChemicalFragment extends Fragment
 	private void loadData(final int what) {
 		// 这里模拟从服务器获取数据
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				try {
@@ -209,6 +233,7 @@ public class ChemicalFragment extends Fragment
 			}
 			mListView.setResultSize(result.size());
 			adapter.notifyDataSetChanged();
+			circleLoader.setVisibility(View.INVISIBLE);
 		};
 	};
 
@@ -259,23 +284,33 @@ public class ChemicalFragment extends Fragment
 
 				@Override
 				public void onClick(View v) {
+					// delete the item
+					MessageItem deleteItem = mChemicalMessageItems.get(position);
+					deleteItemCode = "itemCode=" + "'" + deleteItem.title + "'";
+					ProjectActivity.kjdb.deleteByWhere(DKHtsxItemData.class, deleteItemCode);
 					mChemicalMessageItems.remove(position);
 					adapter.notifyDataSetChanged();
-					Toast.makeText(getActivity(), "删除" + position + "个条", 0).show();
 				}
 			});
 			holder.edit.setOnClickListener(new OnClickListener() {
-
 				@Override
 				public void onClick(View v) {
+					// 查看详细列表
+					MessageItem lookItem = mChemicalMessageItems.get(position);
+					lookItmeCode = "itemCode=" + "'" + lookItem.title + "'";
+					List<DKHtsxItemData> datas = ProjectActivity.kjdb.findAllByWhere(DKHtsxItemData.class,
+							lookItmeCode);
+
+					if (!datas.isEmpty()) {
+						tempDKHtsxItemData = datas.get(0);
+						int myId = tempDKHtsxItemData.getId();
+						mylookListener.lookMore(myId);
+					}
 					adapter.notifyDataSetChanged();
-					Toast.makeText(getActivity(), "编辑" + position + "个条", 0).show();
 				}
 			});
-
 			return slideView;
 		}
-
 	}
 
 	public class MessageItem {
@@ -311,7 +346,6 @@ public class ChemicalFragment extends Fragment
 	@Override
 	public void onLoad() {
 		// TODO Auto-generated method stub
-
 		Message msg = handler.obtainMessage();
 		msg.what = 2;
 		msg.obj = mChemicalMessageItems;
@@ -324,9 +358,4 @@ public class ChemicalFragment extends Fragment
 		loadData(ListViewCompat.REFRESH);
 	}
 
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
-		Toast.makeText(getActivity(), "onItemClick position=" + arg2, Toast.LENGTH_SHORT).show();
-	}
 }

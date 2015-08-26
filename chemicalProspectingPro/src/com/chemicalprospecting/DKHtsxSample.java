@@ -1,31 +1,66 @@
 package com.chemicalprospecting;
 
+import java.util.Date;
+
 import org.kymjs.kjframe.database.annotate.Id;
+import org.kymjs.kjframe.database.annotate.ManyToOne;
 
-//Ë®Ïµ³Á»ıÎïÈ¡Ñù¼ÇÂ¼±í
 public class DKHtsxSample {
-	@Id()
-	private int Id;// Ö÷¼ü
-	private String sampleCode;// ²ÉÑù±àºÅ
 
-	private int itemID;// ¹¤³ÌID,Íâ¼ü
-	private String oreDistrict;// ¿óÇø
-	private float posX;// ºá×ø±ê
-	private float posY;// ×İ×ø±ê
-	private String waterProp;// Ë®ÏµĞÔÖÊ
-	private String repeFlag;// ÊÇ·ñÖØ¸´²ÉÑù
-	private String samplColor;// ÑùÆ·ÑÕÉ«
-	private float sampleParticle;// ÑùÆ·Á£¶È
-	private float sampleWeight;// ÑùÆ·ÖØÁ¿
-	private String remarks;// ±¸×¢
-	private String sampler;// ²ÉÑùÈË
-	private String sampleTime;// ²ÉÑùÈÕÆÚ
-	private String recordPerson;// ¼ÇÂ¼ÈË
-	private String recordTime;// ¼ÇÂ¼Ê±¼ä
-	private String checkPerson;// ¼ì²éÈË
-	private int dataSources;// Êı¾İÀ´Ô´
-	private String operator;// ²Ù×÷ÈË
-	private String operTime;// ²Ù×÷Ê±¼ä
+	@Id()
+	private int Id;// é‡‡æ ·ID
+	private String sampleCode;// é‡‡æ ·ç¼–å·
+	private int itemID;// å¤–é”® å·¥ç¨‹ID
+	private String oreDistrict;// çŸ¿åŒº
+	private float posX;// æ¨ªåæ ‡
+	private float posY;// çºµåæ ‡
+	private String waterProp;// æ°´ç³»æ€§è´¨
+	private String repeFlag;// æ˜¯å¦é‡å¤é‡‡æ ·
+	private String samplColor;// æ ·å“é¢œè‰²
+	private float sampleParticle;// æ ·å“ç²’åº¦
+	private float sampleWeight;// æ ·å“é‡é‡
+	private String remarks;// å¤‡æ³¨
+	private String sampler;// é‡‡æ ·äºº
+	private Date sampleTime;// é‡‡æ ·æ—¥æœŸ
+	private String recordPerson;// è®°å½•äºº
+	private Date recordTime;// è®°å½•æ—¶é—´
+	private String checkPerson;// æ£€æŸ¥äºº
+	private short dataSources;// æ•°æ®æ¥æº
+	private String operator;// æ“ä½œäºº
+	private String operTime;// æ“ä½œæ—¶é—´
+	private String MicroTopography;// å¾®åœ°å½¢ç…§
+	@ManyToOne(column = "dkHtsxItemDataId")
+	private DKHtsxItemData dkHtsxItemdata;
+
+	/**
+	 * @return the microTopography
+	 */
+	public String getMicroTopography() {
+		return MicroTopography;
+	}
+
+	/**
+	 * @param microTopography
+	 *            the microTopography to set
+	 */
+	public void setMicroTopography(String microTopography) {
+		MicroTopography = microTopography;
+	}
+
+	/**
+	 * @return the dkHtsxItemdata
+	 */
+	public DKHtsxItemData getDkHtsxItemdata() {
+		return dkHtsxItemdata;
+	}
+
+	/**
+	 * @param dkHtsxItemdata
+	 *            the dkHtsxItemdata to set
+	 */
+	public void setDkHtsxItemdata(DKHtsxItemData dkHtsxItemdata) {
+		this.dkHtsxItemdata = dkHtsxItemdata;
+	}
 
 	public int getId() {
 		return Id;
@@ -33,6 +68,36 @@ public class DKHtsxSample {
 
 	public void setId(int id) {
 		this.Id = id;
+	}
+
+	/**
+	 * @return the sampleTime
+	 */
+	public Date getSampleTime() {
+		return sampleTime;
+	}
+
+	/**
+	 * @param sampleTime
+	 *            the sampleTime to set
+	 */
+	public void setSampleTime(Date sampleTime) {
+		this.sampleTime = sampleTime;
+	}
+
+	/**
+	 * @return the recordTime
+	 */
+	public Date getRecordTime() {
+		return recordTime;
+	}
+
+	/**
+	 * @param recordTime
+	 *            the recordTime to set
+	 */
+	public void setRecordTime(Date recordTime) {
+		this.recordTime = recordTime;
 	}
 
 	public String getSampleCode() {
@@ -131,28 +196,12 @@ public class DKHtsxSample {
 		this.sampler = sampler;
 	}
 
-	public String getSampleTime() {
-		return sampleTime;
-	}
-
-	public void setSampleTime(String time) {
-		this.sampleTime = time;
-	}
-
 	public String getRecordPerson() {
 		return recordPerson;
 	}
 
 	public void setRecordPerson(String recordPerson) {
 		this.recordPerson = recordPerson;
-	}
-
-	public String getRecordTime() {
-		return recordTime;
-	}
-
-	public void setRecordTime(String time) {
-		this.recordTime = time;
 	}
 
 	public String getCheckPerson() {
@@ -163,11 +212,11 @@ public class DKHtsxSample {
 		this.checkPerson = checkPerson;
 	}
 
-	public int getDataSources() {
+	public short getDataSources() {
 		return dataSources;
 	}
 
-	public void setDataSources(int dataSources) {
+	public void setDataSources(short dataSources) {
 		this.dataSources = dataSources;
 	}
 
@@ -185,5 +234,20 @@ public class DKHtsxSample {
 
 	public void setOperTime(String operTime) {
 		this.operTime = operTime;
+	}
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+
+	@Override
+	public String toString() {
+		return "DKHtsxSample [Id=" + Id + ", sampleCode=" + sampleCode + ", itemID=" + itemID + ", oreDistrict="
+				+ oreDistrict + ", posX=" + posX + ", posY=" + posY + ", waterProp=" + waterProp + ", repeFlag="
+				+ repeFlag + ", samplColor=" + samplColor + ", sampleParticle=" + sampleParticle + ", sampleWeight="
+				+ sampleWeight + ", remarks=" + remarks + ", sampler=" + sampler + ", sampleTime=" + sampleTime
+				+ ", recordPerson=" + recordPerson + ", recordTime=" + recordTime + ", checkPerson=" + checkPerson
+				+ ", dataSources=" + dataSources + ", operator=" + operator + ", operTime=" + operTime + "]";
 	}
 }

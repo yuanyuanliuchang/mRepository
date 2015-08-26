@@ -76,5 +76,16 @@
         <attr name="ptrDrawableTop" format="reference" />
         <attr name="ptrDrawableBottom" format="reference" />
     </declare-styleable>
+    <declare-styleable name="circleloader">
+        <attr name="text" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textFakeBold" format="boolean" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="circleRadius" format="dimension" />
+        <attr name="circleStrokeWidth" format="dimension" />
+        <attr name="circleColor" format="reference|color" />
+        <attr name="circleAndTextSpacing" format="dimension" />
+        <attr name="backgroundColor" format="reference|color" />
+    </declare-styleable>
 
 </resources>

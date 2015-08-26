@@ -21,7 +21,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 
 @SuppressWarnings("deprecation")
 public class MapActivity extends Activity {

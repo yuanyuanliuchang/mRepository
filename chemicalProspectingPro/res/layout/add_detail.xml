@@ -5,385 +5,515 @@
     android:background="#fff0f0f0" >
 
     <LinearLayout
+        android:id="@+id/submit_cancel_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="10.0dip" >
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="9dp"
+        android:layout_marginLeft="12.0dip"
+        android:layout_marginRight="12.0dip"
+        android:layout_marginTop="9dp"
+        android:orientation="horizontal" >
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="22.0dip" >
-        </FrameLayout>
-
-        <ScrollView
-            android:id="@+id/id_more_scrollview"
+        <Button
+            android:id="@+id/submitDetail"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/yuanjiao" >
+            android:layout_height="40.0dip"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:singleLine="true"
+            android:text="@string/submit"
+            android:textColor="@color/lightslategray"
+            android:textSize="18.0sp" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:orientation="vertical" >
+        <Button
+            android:id="@+id/cancelDetail"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:singleLine="true"
+            android:text="@string/cancel"
+            android:textColor="@color/lightslategray"
+            android:textSize="18.0sp" />
+    </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="9dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="序号："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputSeq"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="样号："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputSampNo"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="颜色："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputCol"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="横坐标："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputHoriCoord"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="纵坐标："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputLongituCoord"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="重复标样："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputReSamp"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="水系性质："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputWaterProp"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="样品重量："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputSampWei"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="微地形照："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputMicroTopog"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="粒度或数目："
-                        android:textSize="16.0sp" />
-
-                    <EditText
-                        android:id="@+id/inputSizeOrNUm"
-                        android:layout_width="fill_parent"
-                        android:layout_height="40.0dip"
-                        android:background="@drawable/background_corners"
-                        android:drawablePadding="15.0dip"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:paddingBottom="2.0dip"
-                        android:paddingLeft="15.0dip"
-                        android:paddingRight="15.0dip"
-                        android:paddingTop="2.0dip"
-                        android:singleLine="true"
-                        android:textColorHint="#ff999999"
-                        android:textSize="16.0sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+    <ScrollView
+        android:id="@+id/id_more_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/submit_cancel_btn" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:layout_marginLeft="12.0dip"
-            android:layout_marginRight="12.0dip"
-            android:layout_marginTop="9dp"
-            android:orientation="horizontal" >
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/submitDetail"
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="40.0dip"
-                android:layout_marginRight="3dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_selector"
-                android:singleLine="true"
-                android:text="@string/submit"
-                android:textColor="#ffffffff"
-                android:textSize="18.0sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/cancelDetail"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="样号："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputSampNo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="32dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="40.0dip"
-                android:layout_marginLeft="3dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_selector"
-                android:singleLine="true"
-                android:text="@string/cancel"
-                android:textColor="#ffffffff"
-                android:textSize="18.0sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="颜色："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputCol"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="32dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="备注："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputRemarks"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="32dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="横坐标："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputHoriCoord"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="纵坐标："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputLongituCoord"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="采样人："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputSampleCollector"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="记录人："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputRecorder"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="检查人："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputExaminer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="重复标样："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputReSamp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="水系性质："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputWaterProp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="样品重量："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputSampWei"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="微地形照："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputMicroTopog"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="采样日期："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputSampleDate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="粒度数目："
+                    android:textColor="@color/black"
+                    android:textSize="16.0sp" />
+
+                <EditText
+                    android:id="@+id/inputSizeOrNUm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/background_corners"
+                    android:drawablePadding="15.0dip"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="15.0dip"
+                    android:paddingRight="15.0dip"
+                    android:paddingTop="2.0dip"
+                    android:singleLine="true"
+                    android:textColorHint="#ff999999"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

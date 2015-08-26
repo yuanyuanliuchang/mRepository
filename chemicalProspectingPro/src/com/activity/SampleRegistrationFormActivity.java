@@ -1,15 +1,17 @@
 package com.activity;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import org.kymjs.kjframe.KJDB;
+import org.kymjs.kjframe.database.OneToManyLazyLoader;
 import org.kymjs.kjframe.ui.ViewInject;
 
+import com.android.util.DateUtils;
 import com.chemicalprospecting.DKHtsxItemData;
-import com.chemicalprospectingpro.R;
+import com.chemicalprospecting.DKHtsxSample;
 import com.common.method.MyMethod;
+import com.kanyuan.circleloader.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -32,7 +34,7 @@ public class SampleRegistrationFormActivity extends Activity {
 	private MyMethod mMyMethod;
 	TimePopupWindow pwTime;
 	TimePopupWindow endpwTime;
-
+	private OneToManyLazyLoader<DKHtsxItemData, DKHtsxSample> oneToManyLazyLoader;
 	private DKHtsxItemData dkhtsxitemdata;
 
 	@Override
@@ -42,19 +44,16 @@ public class SampleRegistrationFormActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.sample_registration_form);
 
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
-		final String strTime = formatter.format(curDate);
 		mDepartName = (EditText) findViewById(R.id.departName);
 		mMiningArea = (EditText) findViewById(R.id.miningArea);
 		mNumber = (EditText) findViewById(R.id.project_Num);
 		mRecordPerson = (EditText) findViewById(R.id.recordPerson);
 		mChiefPerson = (EditText) findViewById(R.id.chiefPerson);
-
+		String strDate = DateUtils.getCurrentDate();
 		mStartTime = (EditText) findViewById(R.id.start_time);
 		mEndTime = (EditText) findViewById(R.id.end_time);
-		mStartTime.setText(strTime);
-		mEndTime.setText(strTime);
+		mStartTime.setText(strDate);
+		mEndTime.setText(strDate);
 
 		mStartTime.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -76,14 +75,14 @@ public class SampleRegistrationFormActivity extends Activity {
 
 			@Override
 			public void onTimeSelect(Date date) {
-				mStartTime.setText(getTime(date));
+				mStartTime.setText(DateUtils.getTime(date));
 			}
 		});
 		endpwTime.setOnTimeSelectListener(new OnTimeSelectListener() {
 
 			@Override
 			public void onTimeSelect(Date date) {
-				mEndTime.setText(getTime(date));
+				mEndTime.setText(DateUtils.getTime(date));
 			}
 		});
 		mMyMethod = new MyMethod();
@@ -109,13 +108,19 @@ public class SampleRegistrationFormActivity extends Activity {
 					// 存信息进入数据库
 
 					dkhtsxitemdata = new DKHtsxItemData();
+					oneToManyLazyLoader = new OneToManyLazyLoader<DKHtsxItemData, DKHtsxSample>(dkhtsxitemdata,
+							DKHtsxItemData.class, DKHtsxSample.class, ProjectActivity.kjdb);
+					List<DKHtsxSample> dkHtsxSample = new ArrayList<DKHtsxSample>();
+					oneToManyLazyLoader.setList(dkHtsxSample);
+					dkhtsxitemdata.setDkhtsxSample(oneToManyLazyLoader);
 					dkhtsxitemdata.setExploratoryLine(sMiningArea);
 					dkhtsxitemdata.setItemCode(sNumber);
 					dkhtsxitemdata.setRecordPerson(sRecordPerson);
 					dkhtsxitemdata.setEngineer(sChiefPerson);
+					dkhtsxitemdata.setDepartment(sDepartName);
 					try {
-						dkhtsxitemdata.setRealStarttime(ConverToDate(sStartTime));
-						dkhtsxitemdata.setRealEndtime(ConverToDate(sEndTime));
+						dkhtsxitemdata.setRealStarttime(DateUtils.ConverToDate(sStartTime));
+						dkhtsxitemdata.setRealEndtime(DateUtils.ConverToDate(sEndTime));
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -135,13 +140,4 @@ public class SampleRegistrationFormActivity extends Activity {
 
 	}
 
-	public static String getTime(Date date) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		return format.format(date);
-	}
-
-	public static Date ConverToDate(String strDate) throws Exception {
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		return df.parse(strDate);
-	}
 }

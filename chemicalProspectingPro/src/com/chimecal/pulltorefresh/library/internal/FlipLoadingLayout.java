@@ -15,9 +15,9 @@
  *******************************************************************************/
 package com.chimecal.pulltorefresh.library.internal;
 
-import com.chemicalprospectingpro.R;
 import com.chimecal.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.chimecal.pulltorefresh.library.PullToRefreshBase.Orientation;
+import com.kanyuan.circleloader.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

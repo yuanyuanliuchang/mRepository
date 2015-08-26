@@ -3,7 +3,7 @@ package com.common.method;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,7 +17,7 @@ import android.widget.TimePicker.OnTimeChangedListener;
 
 /**
  * ����ʱ��ѡ��ؼ� ʹ�÷����� private EditText inputDate;//��Ҫ���õ�����ʱ���ı��༭��
- * private String initDateTime="2012��9��3�� 14:44",//��ʼ����ʱ��ֵ �ڵ���¼���ʹ�ã�
+ * private String initDateTime="2012��9��3�� 14:44",//��ʼ����ʱ��ֵ �ڵ���¼���ʹ�ã�O
  * inputDate.setOnClickListener(new OnClickListener() {
  * 
  * @Override public void onClick(View v) { DateTimePickDialogUtil

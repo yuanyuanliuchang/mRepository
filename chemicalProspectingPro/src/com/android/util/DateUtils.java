@@ -1,5 +1,6 @@
 package com.android.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,12 +36,26 @@ public class DateUtils {
 	public static String formatDate(Context context, long date) {
 		@SuppressWarnings("deprecation")
 		int format_flags = android.text.format.DateUtils.FORMAT_NO_NOON_MIDNIGHT
-				| android.text.format.DateUtils.FORMAT_ABBREV_ALL
-				| android.text.format.DateUtils.FORMAT_CAP_AMPM
-				| android.text.format.DateUtils.FORMAT_SHOW_DATE
-				| android.text.format.DateUtils.FORMAT_SHOW_DATE
+				| android.text.format.DateUtils.FORMAT_ABBREV_ALL | android.text.format.DateUtils.FORMAT_CAP_AMPM
+				| android.text.format.DateUtils.FORMAT_SHOW_DATE | android.text.format.DateUtils.FORMAT_SHOW_DATE
 				| android.text.format.DateUtils.FORMAT_SHOW_TIME;
-		return android.text.format.DateUtils.formatDateTime(context, date,
-				format_flags);
+		return android.text.format.DateUtils.formatDateTime(context, date, format_flags);
+	}
+
+	public static String getTime(Date date) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		return format.format(date);
+	}
+
+	public static Date ConverToDate(String strDate) throws Exception {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		return df.parse(strDate);
+	}
+
+	public static String getCurrentDate() {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
+		final String strTime = formatter.format(curDate);
+		return strTime;
 	}
 }

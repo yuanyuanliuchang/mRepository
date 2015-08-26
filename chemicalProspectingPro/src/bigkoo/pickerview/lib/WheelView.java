@@ -22,7 +22,7 @@ package bigkoo.pickerview.lib;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 
 import android.content.Context;
 import android.graphics.Canvas;

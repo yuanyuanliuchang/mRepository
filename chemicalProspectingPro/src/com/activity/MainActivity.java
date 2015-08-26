@@ -3,12 +3,13 @@ package com.activity;
 import org.kymjs.kjframe.ui.BindView;
 
 import com.app.AppContext;
-import com.chemicalprospectingpro.R;
+import com.kanyuan.circleloader.R;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -22,47 +23,34 @@ import android.widget.Toast;
 public class MainActivity extends TabActivity implements OnClickListener {
 
 	private final String TAG = this.getClass().getName();
-
 	private long mkeyTime;
 	private TabHost host;
 	private final static String GROUPBUY_STRING = "GROUPBUY_STRING";
 	private final static String MERCHANT_STRING = "MERCHANT_STRING";
 	private final static String MYSELF_STRING = "MYSELF_STRING";
 	private final static String MORE_STRING = "MORE_STRING";
-
 	@BindView(id = R.id.img_groupbuy, click = true)
 	private ImageView img_groupbuy;
-
 	@BindView(id = R.id.img_merchant, click = true)
 	private ImageView img_merchant;
-
 	@BindView(id = R.id.img_mine, click = true)
 	private ImageView img_mine;
-
 	@BindView(id = R.id.img_more, click = true)
 	private ImageView img_more;
-
 	@BindView(id = R.id.text_groupbuy)
 	private TextView text_groupbuy;
-
 	@BindView(id = R.id.text_merchant)
 	private TextView text_merchant;
-
 	@BindView(id = R.id.text_mine)
 	private TextView text_mine;
-
 	@BindView(id = R.id.text_more)
 	private TextView text_more;
-
 	@BindView(id = R.id.linearlayout_groupbuy, click = true)
 	private LinearLayout linearlayout_groupbuy;
-
 	@BindView(id = R.id.linearlayout_merchant, click = true)
 	private LinearLayout linearlayout_merchant;
-
 	@BindView(id = R.id.linearlayout_mine, click = true)
 	private LinearLayout linearlayout_mine;
-
 	@BindView(id = R.id.linearlayout_more, click = true)
 	private LinearLayout linearlayout_more;
 
@@ -73,16 +61,22 @@ public class MainActivity extends TabActivity implements OnClickListener {
 	 * 
 	 * @see android.support.v4.app.FragmentActivity#onBackPressed()
 	 */
-
 	@Override
-	public void onBackPressed() {
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
-		if ((System.currentTimeMillis() - mkeyTime) > 2000) {
-			mkeyTime = System.currentTimeMillis();
-			Toast.makeText(this, "再按一次推出应用！", Toast.LENGTH_SHORT).show();
-		} else {
-			super.onBackPressed();
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - mkeyTime) > 2000) // System.currentTimeMillis()无论何时调用，肯定大于2000
+			{
+				Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+				mkeyTime = System.currentTimeMillis();
+			} else {
+				finish();
+				System.exit(0);
+			}
+			return true;
 		}
+		return super.onKeyDown(keyCode, event);
+
 	}
 
 	/*
@@ -218,7 +212,6 @@ public class MainActivity extends TabActivity implements OnClickListener {
 			img_more.setBackgroundResource(R.drawable.ic_menu_more_off);
 			text_more.setTextColor(getResources().getColor(R.color.textgray));
 			break;
-
 		case R.id.linearlayout_more:
 		case R.id.img_more:
 			host.setCurrentTabByTag(MORE_STRING);
